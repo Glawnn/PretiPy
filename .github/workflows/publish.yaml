@@ -1,0 +1,33 @@
+name: Publish Python 🐍 distribution 📦 to PyPI and TestPyPI
+
+on:
+  release:
+    types: [created]
+    branches:
+      - 'release/*'
+
+jobs:
+  Deploys:
+    name: build package 📦
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.x"
+    - name: Install dependencies
+      run: |
+        pip install setuptools wheel twine
+
+    - name: Build package
+      run: |
+        python setup.py sdist bdist_wheel
+    
+    - name: Publish to TestPyPI
+      env:
+        TWINE_USERNAME: __token__
+        TWINE_PASSWORD: ${{ secrets.TEST_PYPI_API_TOKEN }}
+      run: |
+        twine upload --repository testpypi dist/*

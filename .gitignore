@@ -1,0 +1,25 @@
+# python
+**/__pycache__/
+venv
+env
+.venv
+.env
+.tox
+
+# pyinstaller
+build
+dist
+*.spec
+
+# pytest && coverage
+.pytest_cache
+.coverage
+
+# setup install
+*.egg*
+
+# vscode
+.vscode
+
+# reports
+reports
