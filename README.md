@@ -1,1 +1,1 @@
-# PretiPy
+# PrettyPy
