@@ -7,7 +7,7 @@ PretiPy is a Python library for enhancing console output with colorful and style
   - [x] **Emoji**: Add emojis to your console messages.
   - [x] **Color**: Easily print text in various colors.
   - [x] **Style**: Easily print text with style.
-  - [ ] **Background Color**: Print text with colored background.
+  - [x] **Background Color**: Print text with colored background.
   - [ ] **Alignment**: Support text alignment (left, center, right).
 - PrettyTable
   - [ ] **Display**: Create and display tables in the console.
