@@ -1,6 +1,10 @@
 # PrettyPi
 
-PretiPy is a Python library for enhancing console output with colorful and style text, emojis, tables, and more.
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/prettypi)
+[![PyPI version](https://badge.fury.io/py/prettypy.svg)](https://badge.fury.io/py/prettypi)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/prettypi)
+
+PrettyPi is a Python library for enhancing console output with colorful and style text, emojis, tables, and more.
 
 ## Features
 - PrettyPrint
@@ -9,6 +13,7 @@ PretiPy is a Python library for enhancing console output with colorful and style
   - [x] **Style**: Easily print text with style.
   - [x] **Background Color**: Print text with colored background.
   - [ ] **Alignment**: Support text alignment (left, center, right).
+  - [ ] **Message**: print special messages
 - PrettyTable
   - [ ] **Display**: Create and display tables in the console.
   - [ ] **Custom**: Customize table formatting and styles.
@@ -29,9 +34,11 @@ Here's a quick example of how to use PrettyPi:
 
 ### pretty_print
 ```python
-from prettypi.pretty_print import StyledStr, Color, Style, Emoji
+from prettypi.pretty_print import StyledStr, Color, Style, Emoji, BackgroundColor
 
-styled_str = StyledStr("Toto", color=Color.RED, style=Style.BOLD)
-print(f"My name is {styled_str} {Emoji.SMILE}")
+styled_str = StyledStr("My name", background_color=BackgroundColor.MAGENTA, style=Style.UNDERLINE)
+styled_str2 = StyledStr("Toto", color=Color.RED, style=Style.BOLD)
+
+print(f"{styled_str} is {styled_str2} {Emoji.SMILE}")
 ```
 
