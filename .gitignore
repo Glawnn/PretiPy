@@ -13,7 +13,8 @@ dist
 
 # pytest && coverage
 .pytest_cache
-.coverage
+.coverage*
+htmlcov
 
 # setup install
 *.egg*
