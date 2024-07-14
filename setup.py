@@ -6,6 +6,8 @@ setup(
     version="0.1.2",
 
     description="A Python library for pretty printing and enhanced console output.",
+    long_description=open("README.md").read(),
+    long_description_content_type='text/markdown',
     author="Vodkas",
     license="MIT",
     packages=find_packages(exclude=("tests")),
