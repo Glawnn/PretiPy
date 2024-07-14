@@ -19,9 +19,9 @@ class StyledStr:
     def _check_input(self):
         if not isinstance(self.string, str):
             raise ValueError(f"Invalid string: {self.string}")
-        if self.color not in Color:
+        if not isinstance(self.color, Color):
             raise ValueError(f"Invalid color: {self.color}")
-        if self.style not in Style:
+        if not isinstance(self.style, Style):
             raise ValueError(f"Invalid style: {self.style}")
 
     def set_color(self, color: Color):
