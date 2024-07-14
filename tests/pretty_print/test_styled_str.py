@@ -1,5 +1,5 @@
 import pytest
-from prettypi.pretty_print import StyledStr, Color, Style
+from prettypi.pretty_print import StyledStr, Color, Style, BackgroundColor
 
 
 class TestStyledStr:
@@ -8,11 +8,19 @@ class TestStyledStr:
         "params",
         [
             pytest.param(
-                {"string": "Toto", "color": Color.RED, "style": Style.BOLD},
+                {
+                    "string": "Toto",
+                    "color": Color.RED,
+                    "style": Style.BOLD,
+                    "background_color": BackgroundColor.GREEN,
+                },
                 id="all param",
             ),
             pytest.param({"color": Color.RED}, id="color param"),
             pytest.param({"style": Style.BOLD}, id="style param"),
+            pytest.param(
+                {"background_color": BackgroundColor.GREEN}, id="background_color param"
+            ),
             pytest.param({"string": "Toto"}, id="Str param"),
             pytest.param({}, id="no param"),
         ],
@@ -23,17 +31,28 @@ class TestStyledStr:
         assert styled_str.string == params.get("string", "")
         assert styled_str.color == params.get("color", Color.RESET)
         assert styled_str.style == params.get("style", Style.RESET)
+        assert styled_str.background_color == params.get(
+            "background_color", BackgroundColor.RESET
+        )
         styled_str._check_input.assert_called_once()
 
     @pytest.mark.parametrize(
         "params",
         [
             pytest.param(
-                {"string": "Toto", "color": Color.RED, "style": Style.BOLD},
+                {
+                    "string": "Toto",
+                    "color": Color.RED,
+                    "style": Style.BOLD,
+                    "background_color": BackgroundColor.GREEN,
+                },
                 id="all param",
             ),
             pytest.param({"color": Color.RED}, id="color param"),
             pytest.param({"style": Style.BOLD}, id="style param"),
+            pytest.param(
+                {"background_color": BackgroundColor.GREEN}, id="background_color param"
+            ),
             pytest.param({"string": "Toto"}, id="Str param"),
             pytest.param({}, id="no param"),
             pytest.param(
@@ -43,7 +62,19 @@ class TestStyledStr:
                 {"string": "Toto", "style": Style.BOLD}, id="string and style param"
             ),
             pytest.param(
+                {"string": "Toto", "background_color": BackgroundColor.GREEN},
+                id="string and background_color param",
+            ),
+            pytest.param(
                 {"color": Color.RED, "style": Style.BOLD}, id="color and style param"
+            ),
+            pytest.param(
+                {"color": Color.RED, "background_color": BackgroundColor.GREEN},
+                id="color and background_color param",
+            ),
+            pytest.param(
+                {"style": Style.BOLD, "background_color": BackgroundColor.GREEN},
+                id="style and background_color param",
             ),
         ],
     )
@@ -52,6 +83,9 @@ class TestStyledStr:
         assert styled_str.string == params.get("string", "")
         assert styled_str.color == params.get("color", Color.RESET)
         assert styled_str.style == params.get("style", Style.RESET)
+        assert styled_str.background_color == params.get(
+            "background_color", BackgroundColor.RESET
+        )
 
     @pytest.mark.parametrize(
         "params, expected",
@@ -107,6 +141,16 @@ class TestStyledStr:
                 "Invalid string: 1",
                 id="int string and str color and str style param",
             ),
+            pytest.param(
+                {"background_color": "GREEN"},
+                "Invalid background color: GREEN",
+                id="str background_color param",
+            ),
+            pytest.param(
+                {"string": "Toto", "background_color": "GREEN"},
+                "Invalid background color: GREEN",
+                id="valid string and str background_color param",
+            ),
         ],
     )
     def test_check_input_invalid(self, params, expected):
@@ -136,6 +180,17 @@ class TestStyledStr:
             styled_str.set_style("BOLD")
         assert str(e.value) == "Invalid style: BOLD"
 
+    def test_set_background_color(self):
+        styled_str = StyledStr()
+        styled_str.set_background_color(BackgroundColor.GREEN)
+        assert styled_str.background_color == BackgroundColor.GREEN
+
+    def test_set_invalid_background_color(self):
+        styled_str = StyledStr()
+        with pytest.raises(ValueError) as e:
+            styled_str.set_background_color("GREEN")
+        assert str(e.value) == "Invalid background color: GREEN"
+
     @pytest.mark.parametrize(
         "params, expexted",
         [
@@ -158,13 +213,38 @@ class TestStyledStr:
                 id="string and style param",
             ),
             pytest.param(
+                {"background_color": BackgroundColor.GREEN},
+                f"{BackgroundColor.GREEN}{BackgroundColor.RESET}",
+                id="background_color param",
+            ),
+            pytest.param(
+                {"string": "Toto", "background_color": BackgroundColor.GREEN},
+                f"{BackgroundColor.GREEN}Toto{BackgroundColor.RESET}",
+                id="string and background_color param",
+            ),
+            pytest.param(
                 {"color": Color.RED, "style": Style.BOLD},
-                f"{Color.RED}{Style.BOLD}{Style.RESET}{Color.RESET}",
+                f"{Color.RED}{Style.BOLD}{Style.RESET}",
                 id="color and style param",
             ),
             pytest.param(
-                {"string": "Toto", "color": Color.RED, "style": Style.BOLD},
-                f"{Color.RED}{Style.BOLD}Toto{Style.RESET}{Color.RESET}",
+                {"color": Color.RED, "background_color": BackgroundColor.GREEN},
+                f"{Color.RED}{BackgroundColor.GREEN}{Color.RESET}",
+                id="color and background_color param",
+            ),
+            pytest.param(
+                {"style": Style.BOLD, "background_color": BackgroundColor.GREEN},
+                f"{Style.BOLD}{BackgroundColor.GREEN}{Style.RESET}",
+                id="style and background_color param",
+            ),
+            pytest.param(
+                {
+                    "string": "Toto",
+                    "color": Color.RED,
+                    "style": Style.BOLD,
+                    "background_color": BackgroundColor.GREEN,
+                },
+                f"{Color.RED}{Style.BOLD}{BackgroundColor.GREEN}Toto{Style.RESET}",
                 id="all param",
             ),
         ],

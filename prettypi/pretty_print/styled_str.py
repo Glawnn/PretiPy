@@ -2,17 +2,22 @@
     You can use this class to create a string with ANSI color and style codes.
 """
 
-from .ansi_codes import Color, Style
+from .ansi_codes import Color, Style, BackgroundColor
 
 
 class StyledStr:
     """This class represents a string with ANSI color and style codes."""
 
     def __init__(
-        self, string: str = "", color: Color = Color.RESET, style: Style = Style.RESET
+        self,
+        string: str = "",
+        color: Color = Color.RESET,
+        style: Style = Style.RESET,
+        background_color: BackgroundColor = BackgroundColor.RESET,
     ):
         self.string = string
         self.color = color
+        self.background_color = background_color
         self.style = style
         self._check_input()
 
@@ -23,10 +28,17 @@ class StyledStr:
             raise ValueError(f"Invalid color: {self.color}")
         if not isinstance(self.style, Style):
             raise ValueError(f"Invalid style: {self.style}")
+        if not isinstance(self.background_color, BackgroundColor):
+            raise ValueError(f"Invalid background color: {self.background_color}")
 
     def set_color(self, color: Color):
         """Set the color of the string."""
         self.color = color
+        self._check_input()
+
+    def set_background_color(self, background_color: Color):
+        """Set the background color of the string."""
+        self.background_color = background_color
         self._check_input()
 
     def set_style(self, style: Style):
@@ -35,10 +47,15 @@ class StyledStr:
         self._check_input()
 
     def __str__(self):
-        if self.color == Color.RESET and self.style == Style.RESET:
-            return self.string
-        if self.color == Color.RESET:
-            return f"{self.style}{self.string}{Style.RESET}"
-        if self.style == Style.RESET:
-            return f"{self.color}{self.string}{Color.RESET}"
-        return f"{self.color}{self.style}{self.string}{Style.RESET}{Color.RESET}"
+        parts = []
+
+        if self.color != Color.RESET:
+            parts.append(str(self.color))
+        if self.style != Style.RESET:
+            parts.append(str(self.style))
+        if self.background_color != BackgroundColor.RESET:
+            parts.append(str(self.background_color))
+
+        if parts:
+            return f"{''.join(parts)}{self.string}{Style.RESET}"
+        return self.string

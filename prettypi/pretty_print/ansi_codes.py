@@ -20,6 +20,23 @@ class Color(Enum):
         return self.value
 
 
+class BackgroundColor(Enum):
+    """This calss contains ANSI color codes that can be used in the pretty print module."""
+
+    BLACK = "\033[40m"
+    RED = "\033[41m"
+    GREEN = "\033[42m"
+    YELLOW = "\033[43m"
+    BLUE = "\033[44m"
+    MAGENTA = "\033[45m"
+    CYAN = "\033[46m"
+    WHITE = "\033[47m"
+    RESET = "\033[0m"
+
+    def __str__(self):
+        return self.value
+
+
 class Style(Enum):
     """This class contains ANSI style codes that can be used in the pretty print module."""
 
