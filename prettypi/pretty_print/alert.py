@@ -17,7 +17,7 @@ class Alert:
     :type message: str
 
     :param prefix: The emoji to display before the message
-    :type prefix: Union[Emoji | str]
+    :type prefix: Union[Emoji , str]
 
     :param surround_prefix: The string to surround the prefix with,
                             surround_prefix="left,right", default is " ,"
@@ -38,7 +38,7 @@ class Alert:
     def __init__(
         self,
         message: str = "",
-        prefix: Union[Emoji | str] = Emoji.INFORMATION,
+        prefix: Union[Emoji, str] = Emoji.INFORMATION,
         surround_prefix: str = " ,",
     ):
         self.surround_prefix = surround_prefix
