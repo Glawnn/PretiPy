@@ -71,6 +71,7 @@ class Emoji(Enum):
     ANTENNA_BARS = "📶"
     PACKAGE = "📦"
     PYTHON = "🐍"
+    INFORMATION = "ℹ️"
 
     def __str__(self):
         return self.value
