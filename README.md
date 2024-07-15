@@ -2,9 +2,14 @@
 
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/prettypi)
 [![PyPI version](https://badge.fury.io/py/prettypy.svg)](https://badge.fury.io/py/prettypi)
+![PyPI - License](https://img.shields.io/pypi/l/prettypi)
 ![PyPI - Downloads](https://img.shields.io/pypi/dm/prettypi)
+![Doc - link](https://img.shields.io/badge/docs-pages-green?link=https%3A%2F%2Fglawnn.github.io%2FPrettyPi)
+
+
 
 PrettyPi is a Python library for enhancing console output with colorful and style text, emojis, tables, and more.
+
 
 ## Features
 - PrettyPrint
