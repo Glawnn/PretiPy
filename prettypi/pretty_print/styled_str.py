@@ -1,12 +1,49 @@
-""" This module contains the StyledStr class.
-    You can use this class to create a string with ANSI color and style codes.
-"""
+""" This module contains the StyledStr class."""
 
 from .ansi_codes import Color, Style, BackgroundColor
 
 
 class StyledStr:
-    """This class represents a string with ANSI color and style codes."""
+    """This class represents a string with ANSI color and style codes.
+    You can use this class to create a string with ANSI color and style codes.
+
+    **Features:**
+
+    - Set the color of the string.
+    - Set the background color of the string.
+    - Set the style of the string.
+
+    :param string: The string to style
+    :type string: str
+    :param color: The color of the string, defaults to Color.RESET
+    :type color: Color
+    :param style: The style of the string, defaults to Style.RESET
+    :type style: Style
+    :param background_color: The background color of the string, defaults to BackgroundColor.RESET
+    :type background_color: BackgroundColor
+
+    :raises ValueError: If the input is invalid
+
+    **Example:**
+
+    .. code-block:: python
+
+            from prettypi.pretty_print import StyledStr, Color, Style, Emoji, BackgroundColor
+
+            print(StyledStr("This is a styled string", color=Color.RED, style=Style.BOLD))
+
+    .. code-block:: python
+
+            styled_str = StyledStr(
+                "My name",
+                background_color=BackgroundColor.MAGENTA,
+                style=Style.UNDERLINE
+            )
+            styled_str2 = StyledStr("Toto", color=Color.RED, style=Style.BOLD)
+
+            print(f"{styled_str} is {styled_str2} {Emoji.SMILE}")
+
+    """
 
     def __init__(
         self,
@@ -22,6 +59,7 @@ class StyledStr:
         self._check_input()
 
     def _check_input(self):
+        """Check if the input is valid"""
         if not isinstance(self.string, str):
             raise ValueError(f"Invalid string: {self.string}")
         if not isinstance(self.color, Color):
@@ -32,17 +70,62 @@ class StyledStr:
             raise ValueError(f"Invalid background color: {self.background_color}")
 
     def set_color(self, color: Color):
-        """Set the color of the string."""
+        """Set the color of the string.
+
+        :param color: The color of the string
+        :type color: Color
+
+        :raises ValueError: If the input is invalid
+
+        **Example:**
+
+        .. code-block:: python
+
+                styled_str = StyledStr("This is a styled string")
+                styled_str.set_color(Color.RED)
+                print(styled_str)
+
+        """
         self.color = color
         self._check_input()
 
     def set_background_color(self, background_color: Color):
-        """Set the background color of the string."""
+        """Set the background color of the string.
+
+        :param background_color: The background color of the string
+        :type background_color: Color
+
+        :raises ValueError: If the input is invalid
+
+        **Example:**
+
+        .. code-block:: python
+
+                styled_str = StyledStr("This is a styled string")
+                styled_str.set_background_color(BackgroundColor.RED)
+                print(styled_str)
+
+        """
         self.background_color = background_color
         self._check_input()
 
     def set_style(self, style: Style):
-        """Set the style of the string."""
+        """Set the style of the string.
+
+        :param style: The style of the string
+        :type style: Style
+
+        :raises ValueError: If the input is invalid
+
+        **Example:**
+
+        .. code-block:: python
+
+                styled_str = StyledStr("This is a styled string")
+                styled_str.set_style(Style.BOLD)
+                print(styled_str)
+
+        """
         self.style = style
         self._check_input()
 

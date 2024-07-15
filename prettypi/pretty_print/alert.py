@@ -30,7 +30,8 @@ class Alert:
 
     .. code-block:: python
 
-        from pretty_print import Alert
+        from prettypi.pretty_print import Alert
+
         alert = Alert.info("This is an information alert")
         print(alert)
 
