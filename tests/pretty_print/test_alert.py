@@ -1,5 +1,6 @@
 import pytest
-from prettypi.pretty_print import Alert, Emoji
+from prettypi.pretty_print import Alert
+from prettypi.pretty_print.utils import Emoji
 
 
 class TestAlert:

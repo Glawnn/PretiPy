@@ -79,3 +79,11 @@ class Style(Enum):
 
     def __str__(self):
         return self.value
+
+
+class Align(Enum):
+    """This class contains the alignment options that can be used in the pretty print module."""
+
+    LEFT = "left"
+    CENTER = "center"
+    RIGHT = "right"
