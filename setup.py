@@ -12,7 +12,7 @@ setup(
     author_email="vodkas3630@gmail.com",
     url="https://github.com/Glawnn/PrettyPi",
     project_urls={
-        "Documentation": "https://github.com/Glawnn/PrettyPi",
+        "Documentation": "https://glawnn.github.io/PrettyPi/",
         "Source": "https://github.com/Glawnn/PrettyPi",
     },
     license="MIT",
