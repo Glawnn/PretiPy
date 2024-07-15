@@ -7,9 +7,9 @@ from prettypi.pretty_print.emojis import Emoji
 
 class Alert:
     """Alert class for creating alert messages
+    
+    **Features:**
 
-    Features:
-    ---------
     - Use static methods to create different types of alerts (info, warning, error, success).
     - Use Alert class to create custom alerts with custom emojis.
     - Customize your messages with other elements present in the pretty_print module.
@@ -23,8 +23,10 @@ class Alert:
                             ,"left,right" (default is " ,")
     :type surround_prefix: str
 
-    Example:
-    ---------
+    :raises ValueError: If surround_prefix is not of the form "left,right"
+
+        
+    **Example:**
 
     .. code-block:: python
 
@@ -75,6 +77,7 @@ class Alert:
         :type message: str
         :param surround_prefix: The string to surround the prefix with,
                                 surround_prefix="left,right", default is " ,"
+        :type surround_prefix: str
 
         :return: An information alert
         :rtype: Alert
@@ -89,6 +92,7 @@ class Alert:
         :type message: str
         :param surround_prefix: The string to surround the prefix with,
                                 surround_prefix="left,right", default is " ,"
+        :type surround_prefix: str
 
         :return: An information alert
         :rtype: Alert
@@ -103,6 +107,7 @@ class Alert:
         :type message: str
         :param surround_prefix: The string to surround the prefix with,
                                 surround_prefix="left,right", default is " ,"
+        :type surround_prefix: str
 
         :return: An information alert
         :rtype: Alert
@@ -117,6 +122,7 @@ class Alert:
         :type message: str
         :param surround_prefix: The string to surround the prefix with,
                                 surround_prefix="left,right", default is " ,"
+        :type surround_prefix: str
 
         :return: An information alert
         :rtype: Alert
