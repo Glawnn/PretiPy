@@ -18,7 +18,6 @@ setup(
     license="MIT",
     packages=find_packages(exclude=("tests")),
     install_requires=[
-        "setuptools",
     ],
     classifiers=[
         "License :: OSI Approved :: MIT License",
