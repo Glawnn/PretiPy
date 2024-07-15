@@ -13,7 +13,7 @@ PrettyPi is a Python library for enhancing console output with colorful and styl
   - [x] **Style**: Easily print text with style.
   - [x] **Background Color**: Print text with colored background.
   - [ ] **Alignment**: Support text alignment (left, center, right).
-  - [ ] **Message**: print special messages
+  - [x] **Alert**: print alert messages
 - PrettyTable
   - [ ] **Display**: Create and display tables in the console.
   - [ ] **Custom**: Customize table formatting and styles.
