@@ -7,32 +7,43 @@ from prettypi.pretty_print.emojis import Emoji
 
 class Alert:
     """Alert class for creating alert messages
-    * Use static methods to create different types of alerts (info, warning, error, success)
-    * Use Alert class to create custom alerts with custom emojis
-    * You can custom your messages with other elements present in the pretty_print module
-    * You can also surround your prefix with :
-        surround_prefix="left,right" to add more style to your alert
+
+    **Features:**
+
+    - Use static methods to create different types of alerts (info, warning, error, success).
+    - Use Alert class to create custom alerts with custom emojis.
+    - Customize your messages with other elements present in the pretty_print module.
+    - Surround your prefix with `surround_prefix="left,right"` to add more style to your alert.
 
     :param message: The message to display in the alert
     :type message: str
-
     :param prefix: The emoji to display before the message
-    :type prefix: Union[Emoji , str]
-
-    :param surround_prefix: The string to surround the prefix with,
-                            surround_prefix="left,right", default is " ,"
+    :type prefix: Union[Emoji, str]
+    :param surround_prefix: The string to surround the prefix with, e.g.
+                            ,"left,right" (default is " ,")
     :type surround_prefix: str
 
-    :Example:
-    >>> from pretty_print import Alert
+    :raises ValueError: If surround_prefix is not of the form "left,right"
 
-    >>> alert = Alert.info("This is an information alert")
-    >>> print(alert)
-    ⚠️ This is an information alert
 
-    >>> custom_alert = Alert("This is a warning alert", prefix="+", surround_prefix=" [,]")
-    >>> print(custom_alert)
-    [+] This is a warning alert
+    **Example:**
+
+    .. code-block:: python
+
+        from prettypi.pretty_print import Alert
+
+        alert = Alert.info("This is an information alert")
+        print(alert)
+
+    >>> ⚠️ This is an information alert
+
+    .. code-block:: python
+
+        custom_alert = Alert("This is a warning alert", prefix="+", surround_prefix=" [,]")
+        print(custom_alert)
+
+    >>> [+] This is a warning alert
+
     """
 
     def __init__(
@@ -67,6 +78,7 @@ class Alert:
         :type message: str
         :param surround_prefix: The string to surround the prefix with,
                                 surround_prefix="left,right", default is " ,"
+        :type surround_prefix: str
 
         :return: An information alert
         :rtype: Alert
@@ -81,6 +93,7 @@ class Alert:
         :type message: str
         :param surround_prefix: The string to surround the prefix with,
                                 surround_prefix="left,right", default is " ,"
+        :type surround_prefix: str
 
         :return: An information alert
         :rtype: Alert
@@ -95,6 +108,7 @@ class Alert:
         :type message: str
         :param surround_prefix: The string to surround the prefix with,
                                 surround_prefix="left,right", default is " ,"
+        :type surround_prefix: str
 
         :return: An information alert
         :rtype: Alert
@@ -109,6 +123,7 @@ class Alert:
         :type message: str
         :param surround_prefix: The string to surround the prefix with,
                                 surround_prefix="left,right", default is " ,"
+        :type surround_prefix: str
 
         :return: An information alert
         :rtype: Alert

@@ -4,7 +4,16 @@ from enum import Enum
 
 
 class Emoji(Enum):
-    """This class contains emojis that can be used in the pretty print module."""
+    """This class contains emojis that can be used in the pretty print module.
+
+    **Example:**
+
+    .. code-block:: python
+
+            from pretty_print import Emoji
+            print(f"{Emoji.SMILE} This is a smile emoji")
+
+    """
 
     SMILE = "😊"
     SAD = "😢"
