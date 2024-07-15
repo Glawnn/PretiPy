@@ -29,3 +29,9 @@ jobs:
       
       - name: Run Tests
         run: tox -e py${{ matrix.python-version }}
+
+      - name: Run Coverage
+        run: tox -e coverage
+      
+      - name: Run Docs
+        run: tox -e docs
