@@ -7,7 +7,7 @@ from prettypi.pretty_print.emojis import Emoji
 
 class Alert:
     """Alert class for creating alert messages
-    
+
     **Features:**
 
     - Use static methods to create different types of alerts (info, warning, error, success).
@@ -25,21 +25,21 @@ class Alert:
 
     :raises ValueError: If surround_prefix is not of the form "left,right"
 
-        
+
     **Example:**
 
     .. code-block:: python
 
-     from pretty_print import Alert
-     alert = Alert.info("This is an information alert")
-     print(alert)
+        from pretty_print import Alert
+        alert = Alert.info("This is an information alert")
+        print(alert)
 
     >>> ⚠️ This is an information alert
 
     .. code-block:: python
 
-     custom_alert = Alert("This is a warning alert", prefix="+", surround_prefix=" [,]")
-     print(custom_alert)
+        custom_alert = Alert("This is a warning alert", prefix="+", surround_prefix=" [,]")
+        print(custom_alert)
 
     >>> [+] This is a warning alert
 

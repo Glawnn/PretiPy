@@ -4,7 +4,16 @@ from enum import Enum
 
 
 class Color(Enum):
-    """This calss contains ANSI color codes that can be used in the pretty print module."""
+    """This class contains ANSI color codes that can be used in the pretty print module.
+
+    **Example:**
+
+    .. code-block:: python
+
+        from pretty_print import Color
+        print(f"{Color.RED}This is a red text{Color.RESET}")
+
+    """
 
     BLACK = "\033[30m"
     RED = "\033[31m"
@@ -21,7 +30,16 @@ class Color(Enum):
 
 
 class BackgroundColor(Enum):
-    """This calss contains ANSI color codes that can be used in the pretty print module."""
+    """This class contains ANSI color codes that can be used in the pretty print module.
+
+    **Example:**
+
+    .. code-block:: python
+
+            from pretty_print import BackgroundColor
+            print(f"{BackgroundColor.RED}This is a red background{BackgroundColor.RESET}")
+
+    """
 
     BLACK = "\033[40m"
     RED = "\033[41m"
@@ -38,7 +56,16 @@ class BackgroundColor(Enum):
 
 
 class Style(Enum):
-    """This class contains ANSI style codes that can be used in the pretty print module."""
+    """This class contains ANSI style codes that can be used in the pretty print module.
+
+    **Example:**
+
+    .. code-block:: python
+
+            from pretty_print import Style
+            print(f"{Style.BOLD}This is a bold text{Style.RESET}")
+
+    """
 
     BOLD = "\033[1m"
     DIM = "\033[2m"
