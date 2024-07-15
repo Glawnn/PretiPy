@@ -1,6 +1,6 @@
 """ This module contains the StyledStr class."""
 
-from .ansi_codes import Color, Style, BackgroundColor
+from .utils.ansi_codes import Color, Style, BackgroundColor, Align
 
 
 class StyledStr:
@@ -28,7 +28,8 @@ class StyledStr:
 
     .. code-block:: python
 
-            from prettypi.pretty_print import StyledStr, Color, Style, Emoji, BackgroundColor
+            from prettypi.pretty_print import StyledStr
+            from prettypi.pretty_print.utils import Color, Style, Emoji, BackgroundColor
 
             print(StyledStr("This is a styled string", color=Color.RED, style=Style.BOLD))
 
@@ -56,6 +57,7 @@ class StyledStr:
         self.color = color
         self.background_color = background_color
         self.style = style
+        self.align = (Align.LEFT, None)
         self._check_input()
 
     def _check_input(self):
@@ -68,6 +70,10 @@ class StyledStr:
             raise ValueError(f"Invalid style: {self.style}")
         if not isinstance(self.background_color, BackgroundColor):
             raise ValueError(f"Invalid background color: {self.background_color}")
+        if len(self.align) != 2 or not isinstance(self.align[0], Align):
+            raise ValueError(f"Invalid align: {self.align}")
+        if not isinstance(self.align[1], int) and self.align[1] is not None:
+            raise ValueError(f"Invalid align: {self.align}")
 
     def set_color(self, color: Color):
         """Set the color of the string.
@@ -129,8 +135,59 @@ class StyledStr:
         self.style = style
         self._check_input()
 
+    def set_align(self, align: Align, width: int = None):
+        """Set the alignment of the string.
+
+        :param align: The alignment of the string
+        :type align: Align
+        :param width: The width of the max string, defaults to None
+        :type width: int
+
+        :raises ValueError: If the input is invalid
+
+        **Example:**
+
+        .. code-block:: python
+
+                styled_str = StyledStr("This is a styled string")
+                styled_str.set_align(Align.CENTER, 20)
+                print(styled_str)
+
+        """
+        self.align = (align, width)
+        self._check_input()
+
+    def _len_without_ansi(self):
+        """Return the length of the string without ANSI codes
+
+        :return: The length of the string without ANSI codes
+        :rtype: int
+        """
+        return len(self.string)
+
+    def _align_string(self):
+        """Align the string
+
+        :return: The aligned string
+        :rtype: str
+        """
+        if self.align[1] is None:
+            return self.string
+
+        direction, width = self.align
+        if direction == Align.LEFT:
+            return self.string.ljust(width)
+        if direction == Align.CENTER:
+            return self.string.center(width)
+        return self.string.rjust(width)
+
+    def __len__(self):
+        return self._len_without_ansi()
+
     def __str__(self):
         parts = []
+
+        string = self._align_string()
 
         if self.color != Color.RESET:
             parts.append(str(self.color))
@@ -140,5 +197,5 @@ class StyledStr:
             parts.append(str(self.background_color))
 
         if parts:
-            return f"{''.join(parts)}{self.string}{Style.RESET}"
-        return self.string
+            return f"{''.join(parts)}{string}{Style.RESET}"
+        return string

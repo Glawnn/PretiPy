@@ -1,5 +1,6 @@
 import pytest
-from prettypi.pretty_print import StyledStr, Color, Style, BackgroundColor
+from prettypi.pretty_print import StyledStr
+from prettypi.pretty_print.utils import Color, Style, BackgroundColor, Align
 
 
 class TestStyledStr:
@@ -191,6 +192,17 @@ class TestStyledStr:
             styled_str.set_background_color("GREEN")
         assert str(e.value) == "Invalid background color: GREEN"
 
+    def test_set_align(self):
+        styled_str = StyledStr()
+        styled_str.set_align(Align.CENTER, 10)
+        assert styled_str.align == (Align.CENTER, 10)
+
+    def test_set_invalid_align(self):
+        styled_str = StyledStr()
+        with pytest.raises(ValueError) as e:
+            styled_str.set_align("CENTER", 12)
+        assert str(e.value) == "Invalid align: ('CENTER', 12)"
+
     @pytest.mark.parametrize(
         "params, expexted",
         [
@@ -252,3 +264,79 @@ class TestStyledStr:
     def test_str(self, params, expexted):
         styled_str = StyledStr(**params)
         assert str(styled_str) == expexted
+
+    @pytest.mark.parametrize(
+        "params, align, expected",
+        [
+            pytest.param(
+                {"string": "Toto"},
+                {"align": Align.LEFT, "width": 10},
+                "Toto      ",
+                id="left align",
+            ),
+            pytest.param(
+                {"string": "Toto"},
+                {"align": Align.RIGHT, "width": 10},
+                "      Toto",
+                id="right align",
+            ),
+            pytest.param(
+                {"string": "Toto"},
+                {"align": Align.CENTER, "width": 10},
+                "   Toto   ",
+                id="center align",
+            ),
+            pytest.param(
+                {"string": "Toto", "color": Color.RED},
+                {"align": Align.LEFT, "width": 10},
+                f"{Color.RED}Toto      {Color.RESET}",
+                id="color and left align",
+            ),
+            pytest.param(
+                {"string": "Toto", "color": Color.RED},
+                {"align": Align.RIGHT, "width": 10},
+                f"{Color.RED}      Toto{Color.RESET}",
+                id="color and right align",
+            ),
+            pytest.param(
+                {"string": "Toto", "color": Color.RED},
+                {"align": Align.CENTER, "width": 10},
+                f"{Color.RED}   Toto   {Color.RESET}",
+                id="color and center align",
+            ),
+            pytest.param(
+                {
+                    "string": "Toto",
+                    "style": Style.BOLD,
+                    "background_color": BackgroundColor.GREEN,
+                },
+                {"align": Align.LEFT, "width": 10},
+                f"{Style.BOLD}{BackgroundColor.GREEN}Toto      {Style.RESET}",
+                id="style and background_color and left align",
+            ),
+            pytest.param(
+                {
+                    "string": "Toto",
+                    "style": Style.BOLD,
+                    "background_color": BackgroundColor.GREEN,
+                },
+                {"align": Align.RIGHT, "width": 10},
+                f"{Style.BOLD}{BackgroundColor.GREEN}      Toto{Style.RESET}",
+                id="style and background_color and right align",
+            ),
+            pytest.param(
+                {
+                    "string": "Toto",
+                    "style": Style.BOLD,
+                    "background_color": BackgroundColor.GREEN,
+                },
+                {"align": Align.CENTER, "width": 10},
+                f"{Style.BOLD}{BackgroundColor.GREEN}   Toto   {Style.RESET}",
+                id="style and background_color and center align",
+            ),
+        ],
+    )
+    def test_str_with_align(self, params, align, expected):
+        styled_str = StyledStr(**params)
+        styled_str.set_align(**align)
+        assert str(styled_str) == expected

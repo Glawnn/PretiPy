@@ -1,6 +1,6 @@
 """ Test emojis module. """
 
-from prettypi.pretty_print import Emoji
+from prettypi.pretty_print.utils import Emoji
 
 
 class TestEmojis:

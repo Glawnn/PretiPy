@@ -1,5 +1,5 @@
-PrettyPrint Module
-==================
+PrettyPrint
+===========
 
 .. automodule:: prettypi.pretty_print
    :members:

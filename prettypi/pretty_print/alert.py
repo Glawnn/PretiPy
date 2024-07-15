@@ -2,7 +2,7 @@
 
 from typing import Union
 
-from prettypi.pretty_print.emojis import Emoji
+from prettypi.pretty_print.utils import Emoji
 
 
 class Alert:
