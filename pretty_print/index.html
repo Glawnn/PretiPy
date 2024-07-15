@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrettyPrint &mdash; PrettyPi 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PrettyPrint utils" href="utils.html" />
+    <link rel="prev" title="Welcom to PrettyPi documentation" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PrettyPi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PrettyPrint</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_print.Alert"><code class="docutils literal notranslate"><span class="pre">Alert</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.Alert.error"><code class="docutils literal notranslate"><span class="pre">Alert.error()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.Alert.info"><code class="docutils literal notranslate"><span class="pre">Alert.info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.Alert.success"><code class="docutils literal notranslate"><span class="pre">Alert.success()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.Alert.warning"><code class="docutils literal notranslate"><span class="pre">Alert.warning()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_print.StyledStr"><code class="docutils literal notranslate"><span class="pre">StyledStr</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.StyledStr.set_align"><code class="docutils literal notranslate"><span class="pre">StyledStr.set_align()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.StyledStr.set_background_color"><code class="docutils literal notranslate"><span class="pre">StyledStr.set_background_color()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.StyledStr.set_color"><code class="docutils literal notranslate"><span class="pre">StyledStr.set_color()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.StyledStr.set_style"><code class="docutils literal notranslate"><span class="pre">StyledStr.set_style()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.html">PrettyPrint utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PrettyPi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PrettyPrint</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pretty_print/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-prettypi.pretty_print">
+<span id="prettyprint"></span><h1>PrettyPrint<a class="headerlink" href="#module-prettypi.pretty_print" title="Link to this heading"></a></h1>
+<p>prettypi.pretty_print module helps you to print easily styled messages.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>Use the StyledStr class to print styled messages.</dt><dd><ul>
+<li><p>Color the text.</p></li>
+<li><p>Set the background color of the text.</p></li>
+<li><p>Set the style of the text.</p></li>
+<li><p>Align the text.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Use the Alert class to print alerts.</dt><dd><ul>
+<li><p>Information alert.</p></li>
+<li><p>Warning alert.</p></li>
+<li><p>Error alert.</p></li>
+<li><p>Success alert.</p></li>
+<li><p>Custom alert.</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_print.Alert">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_print.</span></span><span class="sig-name descname"><span class="pre">Alert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Emoji" title="prettypi.pretty_print.utils.emojis.Emoji"><span class="pre">Emoji</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Emoji.INFORMATION</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surround_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">,'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.Alert" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Alert class for creating alert messages</p>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Use static methods to create different types of alerts (info, warning, error, success).</p></li>
+<li><p>Use Alert class to create custom alerts with custom emojis.</p></li>
+<li><p>Customize your messages with other elements present in the pretty_print module.</p></li>
+<li><p>Surround your prefix with <cite>surround_prefix=”left,right”</cite> to add more style to your alert.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>str</em>) – The message to display in the alert</p></li>
+<li><p><strong>prefix</strong> (<em>Union</em><em>[</em><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Emoji" title="prettypi.pretty_print.utils.Emoji"><em>Emoji</em></a><em>, </em><em>str</em><em>]</em>) – The emoji to display before the message</p></li>
+<li><p><strong>surround_prefix</strong> (<em>str</em>) – The string to surround the prefix with, e.g.
+,”left,right” (default is “ ,”)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If surround_prefix is not of the form “left,right”</p>
+</dd>
+</dl>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettypi.pretty_print</span> <span class="kn">import</span> <span class="n">Alert</span>
+
+<span class="n">alert</span> <span class="o">=</span> <span class="n">Alert</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;This is an information alert&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">alert</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; ⚠️ This is an information alert
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">custom_alert</span> <span class="o">=</span> <span class="n">Alert</span><span class="p">(</span><span class="s2">&quot;This is a warning alert&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;+&quot;</span><span class="p">,</span> <span class="n">surround_prefix</span><span class="o">=</span><span class="s2">&quot; [,]&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">custom_alert</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">[</span><span class="o">+</span><span class="p">]</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">warning</span> <span class="n">alert</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_print.Alert.error">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surround_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">,'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.Alert.error" title="Link to this definition"></a></dt>
+<dd><p>Create an error alert</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>str</em>) – The message to display in the alert</p></li>
+<li><p><strong>surround_prefix</strong> (<em>str</em>) – The string to surround the prefix with,
+surround_prefix=”left,right”, default is “ ,”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An information alert</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#prettypi.pretty_print.Alert" title="prettypi.pretty_print.Alert">Alert</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_print.Alert.info">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surround_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">,'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.Alert.info" title="Link to this definition"></a></dt>
+<dd><p>Create an information alert</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>str</em>) – The message to display in the alert</p></li>
+<li><p><strong>surround_prefix</strong> (<em>str</em>) – The string to surround the prefix with,
+surround_prefix=”left,right”, default is “ ,”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An information alert</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#prettypi.pretty_print.Alert" title="prettypi.pretty_print.Alert">Alert</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_print.Alert.success">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">success</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surround_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">,'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.Alert.success" title="Link to this definition"></a></dt>
+<dd><p>Create a success alert</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>str</em>) – The message to display in the alert</p></li>
+<li><p><strong>surround_prefix</strong> (<em>str</em>) – The string to surround the prefix with,
+surround_prefix=”left,right”, default is “ ,”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An information alert</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#prettypi.pretty_print.Alert" title="prettypi.pretty_print.Alert">Alert</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_print.Alert.warning">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">warning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">surround_prefix</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'</span> <span class="pre">,'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.Alert.warning" title="Link to this definition"></a></dt>
+<dd><p>Create a warning alert</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>message</strong> (<em>str</em>) – The message to display in the alert</p></li>
+<li><p><strong>surround_prefix</strong> (<em>str</em>) – The string to surround the prefix with,
+surround_prefix=”left,right”, default is “ ,”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An information alert</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#prettypi.pretty_print.Alert" title="prettypi.pretty_print.Alert">Alert</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_print.StyledStr">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_print.</span></span><span class="sig-name descname"><span class="pre">StyledStr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.ansi_codes.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Color.RESET</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Style" title="prettypi.pretty_print.utils.ansi_codes.Style"><span class="pre">Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Style.RESET</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.BackgroundColor" title="prettypi.pretty_print.utils.ansi_codes.BackgroundColor"><span class="pre">BackgroundColor</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">BackgroundColor.RESET</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.StyledStr" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class represents a string with ANSI color and style codes.
+You can use this class to create a string with ANSI color and style codes.</p>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Set the color of the string.</p></li>
+<li><p>Set the background color of the string.</p></li>
+<li><p>Set the style of the string.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> (<em>str</em>) – The string to style</p></li>
+<li><p><strong>color</strong> (<a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.Color"><em>Color</em></a>) – The color of the string, defaults to Color.RESET</p></li>
+<li><p><strong>style</strong> (<a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Style" title="prettypi.pretty_print.utils.Style"><em>Style</em></a>) – The style of the string, defaults to Style.RESET</p></li>
+<li><p><strong>background_color</strong> (<a class="reference internal" href="utils.html#prettypi.pretty_print.utils.BackgroundColor" title="prettypi.pretty_print.utils.BackgroundColor"><em>BackgroundColor</em></a>) – The background color of the string, defaults to BackgroundColor.RESET</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the input is invalid</p>
+</dd>
+</dl>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettypi.pretty_print</span> <span class="kn">import</span> <span class="n">StyledStr</span>
+<span class="kn">from</span> <span class="nn">prettypi.pretty_print.utils</span> <span class="kn">import</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Style</span><span class="p">,</span> <span class="n">Emoji</span><span class="p">,</span> <span class="n">BackgroundColor</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">StyledStr</span><span class="p">(</span><span class="s2">&quot;This is a styled string&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">Style</span><span class="o">.</span><span class="n">BOLD</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">styled_str</span> <span class="o">=</span> <span class="n">StyledStr</span><span class="p">(</span>
+    <span class="s2">&quot;My name&quot;</span><span class="p">,</span>
+    <span class="n">background_color</span><span class="o">=</span><span class="n">BackgroundColor</span><span class="o">.</span><span class="n">MAGENTA</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="n">Style</span><span class="o">.</span><span class="n">UNDERLINE</span>
+<span class="p">)</span>
+<span class="n">styled_str2</span> <span class="o">=</span> <span class="n">StyledStr</span><span class="p">(</span><span class="s2">&quot;Toto&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">Style</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">styled_str</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="n">styled_str2</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">Emoji</span><span class="o">.</span><span class="n">SMILE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_print.StyledStr.set_align">
+<span class="sig-name descname"><span class="pre">set_align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">align</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Align" title="prettypi.pretty_print.utils.ansi_codes.Align"><span class="pre">Align</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.StyledStr.set_align" title="Link to this definition"></a></dt>
+<dd><p>Set the alignment of the string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>align</strong> (<a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Align" title="prettypi.pretty_print.utils.Align"><em>Align</em></a>) – The alignment of the string</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – The width of the max string, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the input is invalid</p>
+</dd>
+</dl>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">styled_str</span> <span class="o">=</span> <span class="n">StyledStr</span><span class="p">(</span><span class="s2">&quot;This is a styled string&quot;</span><span class="p">)</span>
+<span class="n">styled_str</span><span class="o">.</span><span class="n">set_align</span><span class="p">(</span><span class="n">Align</span><span class="o">.</span><span class="n">CENTER</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">styled_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_print.StyledStr.set_background_color">
+<span class="sig-name descname"><span class="pre">set_background_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">background_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.ansi_codes.Color"><span class="pre">Color</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.StyledStr.set_background_color" title="Link to this definition"></a></dt>
+<dd><p>Set the background color of the string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>background_color</strong> (<a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.Color"><em>Color</em></a>) – The background color of the string</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the input is invalid</p>
+</dd>
+</dl>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">styled_str</span> <span class="o">=</span> <span class="n">StyledStr</span><span class="p">(</span><span class="s2">&quot;This is a styled string&quot;</span><span class="p">)</span>
+<span class="n">styled_str</span><span class="o">.</span><span class="n">set_background_color</span><span class="p">(</span><span class="n">BackgroundColor</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">styled_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_print.StyledStr.set_color">
+<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.ansi_codes.Color"><span class="pre">Color</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.StyledStr.set_color" title="Link to this definition"></a></dt>
+<dd><p>Set the color of the string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>color</strong> (<a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.Color"><em>Color</em></a>) – The color of the string</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the input is invalid</p>
+</dd>
+</dl>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">styled_str</span> <span class="o">=</span> <span class="n">StyledStr</span><span class="p">(</span><span class="s2">&quot;This is a styled string&quot;</span><span class="p">)</span>
+<span class="n">styled_str</span><span class="o">.</span><span class="n">set_color</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">styled_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_print.StyledStr.set_style">
+<span class="sig-name descname"><span class="pre">set_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Style" title="prettypi.pretty_print.utils.ansi_codes.Style"><span class="pre">Style</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.StyledStr.set_style" title="Link to this definition"></a></dt>
+<dd><p>Set the style of the string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>style</strong> (<a class="reference internal" href="utils.html#prettypi.pretty_print.utils.Style" title="prettypi.pretty_print.utils.Style"><em>Style</em></a>) – The style of the string</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the input is invalid</p>
+</dd>
+</dl>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">styled_str</span> <span class="o">=</span> <span class="n">StyledStr</span><span class="p">(</span><span class="s2">&quot;This is a styled string&quot;</span><span class="p">)</span>
+<span class="n">styled_str</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">Style</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">styled_str</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcom to PrettyPi documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils.html" class="btn btn-neutral float-right" title="PrettyPrint utils" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vodkas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

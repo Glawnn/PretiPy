@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PrettyPrint utils &mdash; PrettyPi 0.2.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=938c9ccc"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="PrettyPrint" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            PrettyPi
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="index.html">PrettyPrint</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PrettyPrint utils</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_print.utils.Align"><code class="docutils literal notranslate"><span class="pre">Align</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Align.CENTER"><code class="docutils literal notranslate"><span class="pre">Align.CENTER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Align.LEFT"><code class="docutils literal notranslate"><span class="pre">Align.LEFT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Align.RIGHT"><code class="docutils literal notranslate"><span class="pre">Align.RIGHT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor"><code class="docutils literal notranslate"><span class="pre">BackgroundColor</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.BLACK"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.BLACK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.BLUE"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.BLUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.CYAN"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.CYAN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.GREEN"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.GREEN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.MAGENTA"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.MAGENTA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.RED"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.RED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.RESET"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.RESET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.WHITE"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.WHITE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.BackgroundColor.YELLOW"><code class="docutils literal notranslate"><span class="pre">BackgroundColor.YELLOW</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_print.utils.Color"><code class="docutils literal notranslate"><span class="pre">Color</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.BLACK"><code class="docutils literal notranslate"><span class="pre">Color.BLACK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.BLUE"><code class="docutils literal notranslate"><span class="pre">Color.BLUE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.CYAN"><code class="docutils literal notranslate"><span class="pre">Color.CYAN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.GREEN"><code class="docutils literal notranslate"><span class="pre">Color.GREEN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.MAGENTA"><code class="docutils literal notranslate"><span class="pre">Color.MAGENTA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.RED"><code class="docutils literal notranslate"><span class="pre">Color.RED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.RESET"><code class="docutils literal notranslate"><span class="pre">Color.RESET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.WHITE"><code class="docutils literal notranslate"><span class="pre">Color.WHITE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Color.YELLOW"><code class="docutils literal notranslate"><span class="pre">Color.YELLOW</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji"><code class="docutils literal notranslate"><span class="pre">Emoji</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.ANTENNA_BARS"><code class="docutils literal notranslate"><span class="pre">Emoji.ANTENNA_BARS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.BEER"><code class="docutils literal notranslate"><span class="pre">Emoji.BEER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.BELL"><code class="docutils literal notranslate"><span class="pre">Emoji.BELL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.BELL_WITH_SLASH"><code class="docutils literal notranslate"><span class="pre">Emoji.BELL_WITH_SLASH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.BOOK"><code class="docutils literal notranslate"><span class="pre">Emoji.BOOK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.CALENDAR"><code class="docutils literal notranslate"><span class="pre">Emoji.CALENDAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.CAMERA"><code class="docutils literal notranslate"><span class="pre">Emoji.CAMERA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.CAMERA_WITH_FLASH"><code class="docutils literal notranslate"><span class="pre">Emoji.CAMERA_WITH_FLASH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.CD"><code class="docutils literal notranslate"><span class="pre">Emoji.CD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.CHECK"><code class="docutils literal notranslate"><span class="pre">Emoji.CHECK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.CLAP"><code class="docutils literal notranslate"><span class="pre">Emoji.CLAP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.CLOCK"><code class="docutils literal notranslate"><span class="pre">Emoji.CLOCK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.COFFEE"><code class="docutils literal notranslate"><span class="pre">Emoji.COFFEE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.COMPUTER"><code class="docutils literal notranslate"><span class="pre">Emoji.COMPUTER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.COMPUTER_DISK"><code class="docutils literal notranslate"><span class="pre">Emoji.COMPUTER_DISK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.CROSS"><code class="docutils literal notranslate"><span class="pre">Emoji.CROSS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.DIVIDE"><code class="docutils literal notranslate"><span class="pre">Emoji.DIVIDE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.DVD"><code class="docutils literal notranslate"><span class="pre">Emoji.DVD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.ENVELOPE"><code class="docutils literal notranslate"><span class="pre">Emoji.ENVELOPE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.EXCLAMATION"><code class="docutils literal notranslate"><span class="pre">Emoji.EXCLAMATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.FILM_FRAMES"><code class="docutils literal notranslate"><span class="pre">Emoji.FILM_FRAMES</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.FIRE"><code class="docutils literal notranslate"><span class="pre">Emoji.FIRE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.FLOPPY_DISK"><code class="docutils literal notranslate"><span class="pre">Emoji.FLOPPY_DISK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.HEART"><code class="docutils literal notranslate"><span class="pre">Emoji.HEART</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.HOURGLASS"><code class="docutils literal notranslate"><span class="pre">Emoji.HOURGLASS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.INFINITY"><code class="docutils literal notranslate"><span class="pre">Emoji.INFINITY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.INFORMATION"><code class="docutils literal notranslate"><span class="pre">Emoji.INFORMATION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.KEY"><code class="docutils literal notranslate"><span class="pre">Emoji.KEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.LOCK"><code class="docutils literal notranslate"><span class="pre">Emoji.LOCK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.LOUDSPEAKER"><code class="docutils literal notranslate"><span class="pre">Emoji.LOUDSPEAKER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MAGNIFYING_GLASS"><code class="docutils literal notranslate"><span class="pre">Emoji.MAGNIFYING_GLASS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MAILBOX"><code class="docutils literal notranslate"><span class="pre">Emoji.MAILBOX</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MEGAPHONE"><code class="docutils literal notranslate"><span class="pre">Emoji.MEGAPHONE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MINUS"><code class="docutils literal notranslate"><span class="pre">Emoji.MINUS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MOBILE_PHONE"><code class="docutils literal notranslate"><span class="pre">Emoji.MOBILE_PHONE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MOBILE_PHONE_OFF"><code class="docutils literal notranslate"><span class="pre">Emoji.MOBILE_PHONE_OFF</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MOBILE_PHONE_RECEIVER"><code class="docutils literal notranslate"><span class="pre">Emoji.MOBILE_PHONE_RECEIVER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MONEY"><code class="docutils literal notranslate"><span class="pre">Emoji.MONEY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MOVIE_CAMERA"><code class="docutils literal notranslate"><span class="pre">Emoji.MOVIE_CAMERA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MULTIPLY"><code class="docutils literal notranslate"><span class="pre">Emoji.MULTIPLY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.MUTE"><code class="docutils literal notranslate"><span class="pre">Emoji.MUTE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.PACKAGE"><code class="docutils literal notranslate"><span class="pre">Emoji.PACKAGE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.PAPER"><code class="docutils literal notranslate"><span class="pre">Emoji.PAPER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.PAPERCLIP"><code class="docutils literal notranslate"><span class="pre">Emoji.PAPERCLIP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.PARTY"><code class="docutils literal notranslate"><span class="pre">Emoji.PARTY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.PENCIL"><code class="docutils literal notranslate"><span class="pre">Emoji.PENCIL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.PLUS"><code class="docutils literal notranslate"><span class="pre">Emoji.PLUS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.PROJECTOR"><code class="docutils literal notranslate"><span class="pre">Emoji.PROJECTOR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.PYTHON"><code class="docutils literal notranslate"><span class="pre">Emoji.PYTHON</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.QUESTION"><code class="docutils literal notranslate"><span class="pre">Emoji.QUESTION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.RADIO"><code class="docutils literal notranslate"><span class="pre">Emoji.RADIO</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.RADIO_BUTTON"><code class="docutils literal notranslate"><span class="pre">Emoji.RADIO_BUTTON</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.ROCKET"><code class="docutils literal notranslate"><span class="pre">Emoji.ROCKET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.SAD"><code class="docutils literal notranslate"><span class="pre">Emoji.SAD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.SCISSORS"><code class="docutils literal notranslate"><span class="pre">Emoji.SCISSORS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.SMILE"><code class="docutils literal notranslate"><span class="pre">Emoji.SMILE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.SPEAKER"><code class="docutils literal notranslate"><span class="pre">Emoji.SPEAKER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.STAR"><code class="docutils literal notranslate"><span class="pre">Emoji.STAR</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.TELEPHONE"><code class="docutils literal notranslate"><span class="pre">Emoji.TELEPHONE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.TELEPHONE_RECEIVER"><code class="docutils literal notranslate"><span class="pre">Emoji.TELEPHONE_RECEIVER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.TELEVISION"><code class="docutils literal notranslate"><span class="pre">Emoji.TELEVISION</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.THUMBS_DOWN"><code class="docutils literal notranslate"><span class="pre">Emoji.THUMBS_DOWN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.THUMBS_UP"><code class="docutils literal notranslate"><span class="pre">Emoji.THUMBS_UP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.VIBRATION_MODE"><code class="docutils literal notranslate"><span class="pre">Emoji.VIBRATION_MODE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.VIDEO_CAMERA"><code class="docutils literal notranslate"><span class="pre">Emoji.VIDEO_CAMERA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Emoji.WARNING"><code class="docutils literal notranslate"><span class="pre">Emoji.WARNING</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_print.utils.Style"><code class="docutils literal notranslate"><span class="pre">Style</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.BLINK"><code class="docutils literal notranslate"><span class="pre">Style.BLINK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.BOLD"><code class="docutils literal notranslate"><span class="pre">Style.BOLD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.DIM"><code class="docutils literal notranslate"><span class="pre">Style.DIM</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.HIDDEN"><code class="docutils literal notranslate"><span class="pre">Style.HIDDEN</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.INVERT"><code class="docutils literal notranslate"><span class="pre">Style.INVERT</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.ITALIC"><code class="docutils literal notranslate"><span class="pre">Style.ITALIC</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.RESET"><code class="docutils literal notranslate"><span class="pre">Style.RESET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.STRIKETHROUGH"><code class="docutils literal notranslate"><span class="pre">Style.STRIKETHROUGH</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_print.utils.Style.UNDERLINE"><code class="docutils literal notranslate"><span class="pre">Style.UNDERLINE</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">PrettyPi</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">PrettyPrint utils</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/pretty_print/utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-prettypi.pretty_print.utils">
+<span id="prettyprint-utils"></span><h1>PrettyPrint utils<a class="headerlink" href="#module-prettypi.pretty_print.utils" title="Link to this heading"></a></h1>
+<p>This module contains all the utility constants that can be used in the pretty_print module.</p>
+<ul class="simple">
+<li><p>Use the Emoji class to print emojis.</p></li>
+<li><p>Use the Color class to color the text.</p></li>
+<li><p>Use the Style class to set the style of the text.</p></li>
+<li><p>Use the BackgroundColor class to set the background color of the text.</p></li>
+<li><p>Use the Align class to align the text.</p></li>
+</ul>
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Align">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_print.utils.</span></span><span class="sig-name descname"><span class="pre">Align</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.utils.Align" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>This class contains the alignment options that can be used in the pretty print module.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Align.CENTER">
+<span class="sig-name descname"><span class="pre">CENTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'center'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Align.CENTER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Align.LEFT">
+<span class="sig-name descname"><span class="pre">LEFT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'left'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Align.LEFT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Align.RIGHT">
+<span class="sig-name descname"><span class="pre">RIGHT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'right'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Align.RIGHT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_print.utils.</span></span><span class="sig-name descname"><span class="pre">BackgroundColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>This class contains ANSI color codes that can be used in the pretty print module.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pretty_print</span> <span class="kn">import</span> <span class="n">BackgroundColor</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">BackgroundColor</span><span class="o">.</span><span class="n">RED</span><span class="si">}</span><span class="s2">This is a red background</span><span class="si">{</span><span class="n">BackgroundColor</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.BLACK">
+<span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[40m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.BLACK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.BLUE">
+<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[44m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.BLUE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.CYAN">
+<span class="sig-name descname"><span class="pre">CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[46m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.CYAN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.GREEN">
+<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[42m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.GREEN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.MAGENTA">
+<span class="sig-name descname"><span class="pre">MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[45m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.MAGENTA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.RED">
+<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[41m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.RED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.RESET">
+<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.RESET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.WHITE">
+<span class="sig-name descname"><span class="pre">WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[47m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.WHITE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.BackgroundColor.YELLOW">
+<span class="sig-name descname"><span class="pre">YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[43m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.BackgroundColor.YELLOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_print.utils.</span></span><span class="sig-name descname"><span class="pre">Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.utils.Color" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>This class contains ANSI color codes that can be used in the pretty print module.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pretty_print</span> <span class="kn">import</span> <span class="n">Color</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="si">}</span><span class="s2">This is a red text</span><span class="si">{</span><span class="n">Color</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.BLACK">
+<span class="sig-name descname"><span class="pre">BLACK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[30m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.BLACK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.BLUE">
+<span class="sig-name descname"><span class="pre">BLUE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[34m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.BLUE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.CYAN">
+<span class="sig-name descname"><span class="pre">CYAN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[36m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.CYAN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.GREEN">
+<span class="sig-name descname"><span class="pre">GREEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[32m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.GREEN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.MAGENTA">
+<span class="sig-name descname"><span class="pre">MAGENTA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[35m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.MAGENTA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.RED">
+<span class="sig-name descname"><span class="pre">RED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[31m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.RED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.RESET">
+<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.RESET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.WHITE">
+<span class="sig-name descname"><span class="pre">WHITE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[37m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.WHITE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Color.YELLOW">
+<span class="sig-name descname"><span class="pre">YELLOW</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[33m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Color.YELLOW" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_print.utils.</span></span><span class="sig-name descname"><span class="pre">Emoji</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>This class contains emojis that can be used in the pretty print module.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pretty_print</span> <span class="kn">import</span> <span class="n">Emoji</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Emoji</span><span class="o">.</span><span class="n">SMILE</span><span class="si">}</span><span class="s2"> This is a smile emoji&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.ANTENNA_BARS">
+<span class="sig-name descname"><span class="pre">ANTENNA_BARS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📶'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.ANTENNA_BARS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.BEER">
+<span class="sig-name descname"><span class="pre">BEER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🍺'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.BEER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.BELL">
+<span class="sig-name descname"><span class="pre">BELL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔔'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.BELL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.BELL_WITH_SLASH">
+<span class="sig-name descname"><span class="pre">BELL_WITH_SLASH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔕'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.BELL_WITH_SLASH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.BOOK">
+<span class="sig-name descname"><span class="pre">BOOK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📖'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.BOOK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.CALENDAR">
+<span class="sig-name descname"><span class="pre">CALENDAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📅'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.CALENDAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.CAMERA">
+<span class="sig-name descname"><span class="pre">CAMERA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📷'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.CAMERA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.CAMERA_WITH_FLASH">
+<span class="sig-name descname"><span class="pre">CAMERA_WITH_FLASH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📸'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.CAMERA_WITH_FLASH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.CD">
+<span class="sig-name descname"><span class="pre">CD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'💿'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.CD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.CHECK">
+<span class="sig-name descname"><span class="pre">CHECK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'✅'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.CHECK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.CLAP">
+<span class="sig-name descname"><span class="pre">CLAP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'👏'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.CLAP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.CLOCK">
+<span class="sig-name descname"><span class="pre">CLOCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'⏰'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.CLOCK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.COFFEE">
+<span class="sig-name descname"><span class="pre">COFFEE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'☕'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.COFFEE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.COMPUTER">
+<span class="sig-name descname"><span class="pre">COMPUTER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'💻'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.COMPUTER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.COMPUTER_DISK">
+<span class="sig-name descname"><span class="pre">COMPUTER_DISK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'💽'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.COMPUTER_DISK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.CROSS">
+<span class="sig-name descname"><span class="pre">CROSS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'❌'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.CROSS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.DIVIDE">
+<span class="sig-name descname"><span class="pre">DIVIDE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'➗'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.DIVIDE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.DVD">
+<span class="sig-name descname"><span class="pre">DVD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📀'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.DVD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.ENVELOPE">
+<span class="sig-name descname"><span class="pre">ENVELOPE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'✉️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.ENVELOPE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.EXCLAMATION">
+<span class="sig-name descname"><span class="pre">EXCLAMATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'❗'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.EXCLAMATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.FILM_FRAMES">
+<span class="sig-name descname"><span class="pre">FILM_FRAMES</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🎞️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.FILM_FRAMES" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.FIRE">
+<span class="sig-name descname"><span class="pre">FIRE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔥'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.FIRE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.FLOPPY_DISK">
+<span class="sig-name descname"><span class="pre">FLOPPY_DISK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'💾'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.FLOPPY_DISK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.HEART">
+<span class="sig-name descname"><span class="pre">HEART</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'❤️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.HEART" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.HOURGLASS">
+<span class="sig-name descname"><span class="pre">HOURGLASS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'⌛'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.HOURGLASS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.INFINITY">
+<span class="sig-name descname"><span class="pre">INFINITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'♾️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.INFINITY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.INFORMATION">
+<span class="sig-name descname"><span class="pre">INFORMATION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ℹ️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.INFORMATION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.KEY">
+<span class="sig-name descname"><span class="pre">KEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔑'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.KEY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.LOCK">
+<span class="sig-name descname"><span class="pre">LOCK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔒'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.LOCK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.LOUDSPEAKER">
+<span class="sig-name descname"><span class="pre">LOUDSPEAKER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📢'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.LOUDSPEAKER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MAGNIFYING_GLASS">
+<span class="sig-name descname"><span class="pre">MAGNIFYING_GLASS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔍'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MAGNIFYING_GLASS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MAILBOX">
+<span class="sig-name descname"><span class="pre">MAILBOX</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📬'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MAILBOX" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MEGAPHONE">
+<span class="sig-name descname"><span class="pre">MEGAPHONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📣'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MEGAPHONE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MINUS">
+<span class="sig-name descname"><span class="pre">MINUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'➖'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MINUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MOBILE_PHONE">
+<span class="sig-name descname"><span class="pre">MOBILE_PHONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📱'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MOBILE_PHONE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MOBILE_PHONE_OFF">
+<span class="sig-name descname"><span class="pre">MOBILE_PHONE_OFF</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📴'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MOBILE_PHONE_OFF" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MOBILE_PHONE_RECEIVER">
+<span class="sig-name descname"><span class="pre">MOBILE_PHONE_RECEIVER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📲'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MOBILE_PHONE_RECEIVER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MONEY">
+<span class="sig-name descname"><span class="pre">MONEY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'💰'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MONEY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MOVIE_CAMERA">
+<span class="sig-name descname"><span class="pre">MOVIE_CAMERA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🎥'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MOVIE_CAMERA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MULTIPLY">
+<span class="sig-name descname"><span class="pre">MULTIPLY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'✖️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MULTIPLY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.MUTE">
+<span class="sig-name descname"><span class="pre">MUTE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔇'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.MUTE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.PACKAGE">
+<span class="sig-name descname"><span class="pre">PACKAGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📦'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.PACKAGE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.PAPER">
+<span class="sig-name descname"><span class="pre">PAPER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📝'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.PAPER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.PAPERCLIP">
+<span class="sig-name descname"><span class="pre">PAPERCLIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📎'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.PAPERCLIP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.PARTY">
+<span class="sig-name descname"><span class="pre">PARTY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🎉'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.PARTY" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.PENCIL">
+<span class="sig-name descname"><span class="pre">PENCIL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'✏️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.PENCIL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.PLUS">
+<span class="sig-name descname"><span class="pre">PLUS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'➕'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.PLUS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.PROJECTOR">
+<span class="sig-name descname"><span class="pre">PROJECTOR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📽️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.PROJECTOR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.PYTHON">
+<span class="sig-name descname"><span class="pre">PYTHON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🐍'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.PYTHON" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.QUESTION">
+<span class="sig-name descname"><span class="pre">QUESTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'❓'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.QUESTION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.RADIO">
+<span class="sig-name descname"><span class="pre">RADIO</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📻'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.RADIO" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.RADIO_BUTTON">
+<span class="sig-name descname"><span class="pre">RADIO_BUTTON</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔘'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.RADIO_BUTTON" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.ROCKET">
+<span class="sig-name descname"><span class="pre">ROCKET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🚀'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.ROCKET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.SAD">
+<span class="sig-name descname"><span class="pre">SAD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'😢'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.SAD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.SCISSORS">
+<span class="sig-name descname"><span class="pre">SCISSORS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'✂️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.SCISSORS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.SMILE">
+<span class="sig-name descname"><span class="pre">SMILE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'😊'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.SMILE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.SPEAKER">
+<span class="sig-name descname"><span class="pre">SPEAKER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'🔈'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.SPEAKER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.STAR">
+<span class="sig-name descname"><span class="pre">STAR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'⭐'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.STAR" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.TELEPHONE">
+<span class="sig-name descname"><span class="pre">TELEPHONE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'☎️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.TELEPHONE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.TELEPHONE_RECEIVER">
+<span class="sig-name descname"><span class="pre">TELEPHONE_RECEIVER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📞'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.TELEPHONE_RECEIVER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.TELEVISION">
+<span class="sig-name descname"><span class="pre">TELEVISION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📺'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.TELEVISION" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.THUMBS_DOWN">
+<span class="sig-name descname"><span class="pre">THUMBS_DOWN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'👎'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.THUMBS_DOWN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.THUMBS_UP">
+<span class="sig-name descname"><span class="pre">THUMBS_UP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'👍'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.THUMBS_UP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.VIBRATION_MODE">
+<span class="sig-name descname"><span class="pre">VIBRATION_MODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📳'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.VIBRATION_MODE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.VIDEO_CAMERA">
+<span class="sig-name descname"><span class="pre">VIDEO_CAMERA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'📹'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.VIDEO_CAMERA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Emoji.WARNING">
+<span class="sig-name descname"><span class="pre">WARNING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'⚠️'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Emoji.WARNING" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_print.utils.</span></span><span class="sig-name descname"><span class="pre">Style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_print.utils.Style" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>This class contains ANSI style codes that can be used in the pretty print module.</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pretty_print</span> <span class="kn">import</span> <span class="n">Style</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">Style</span><span class="o">.</span><span class="n">BOLD</span><span class="si">}</span><span class="s2">This is a bold text</span><span class="si">{</span><span class="n">Style</span><span class="o">.</span><span class="n">RESET</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.BLINK">
+<span class="sig-name descname"><span class="pre">BLINK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[5m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.BLINK" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.BOLD">
+<span class="sig-name descname"><span class="pre">BOLD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[1m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.BOLD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.DIM">
+<span class="sig-name descname"><span class="pre">DIM</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[2m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.DIM" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.HIDDEN">
+<span class="sig-name descname"><span class="pre">HIDDEN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[8m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.HIDDEN" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.INVERT">
+<span class="sig-name descname"><span class="pre">INVERT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[7m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.INVERT" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.ITALIC">
+<span class="sig-name descname"><span class="pre">ITALIC</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[3m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.ITALIC" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.RESET">
+<span class="sig-name descname"><span class="pre">RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.RESET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.STRIKETHROUGH">
+<span class="sig-name descname"><span class="pre">STRIKETHROUGH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[9m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.STRIKETHROUGH" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_print.utils.Style.UNDERLINE">
+<span class="sig-name descname"><span class="pre">UNDERLINE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[4m'</span></em><a class="headerlink" href="#prettypi.pretty_print.utils.Style.UNDERLINE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="PrettyPrint" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Vodkas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
