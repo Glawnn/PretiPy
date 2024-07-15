@@ -72,7 +72,7 @@ class TestAlert:
                     "prefix": "+",
                     "surround_prefix": " [,]",
                 },
-                f" [+] This is an alert",
+                " [+] This is an alert",
                 id="Test Alert with message, prefix and surround_prefix",
             ),
         ],

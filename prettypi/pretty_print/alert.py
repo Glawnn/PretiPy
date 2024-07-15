@@ -10,7 +10,8 @@ class Alert:
     * Use static methods to create different types of alerts (info, warning, error, success)
     * Use Alert class to create custom alerts with custom emojis
     * You can custom your messages with other elements present in the pretty_print module
-    * You can also surround your prefix with surround_prefix="left,right" to add more style to your alert
+    * You can also surround your prefix with :
+        surround_prefix="left,right" to add more style to your alert
 
     :param message: The message to display in the alert
     :type message: str
@@ -18,7 +19,8 @@ class Alert:
     :param prefix: The emoji to display before the message
     :type prefix: Union[Emoji | str]
 
-    :param surround_prefix: The string to surround the prefix with, surround_prefix="left,right", default is " ,"
+    :param surround_prefix: The string to surround the prefix with,
+                            surround_prefix="left,right", default is " ,"
     :type surround_prefix: str
 
     :Example:
@@ -63,7 +65,8 @@ class Alert:
 
         :param message: The message to display in the alert
         :type message: str
-        :param surround_prefix: The string to surround the prefix with, surround_prefix="left,right", default is " ,"
+        :param surround_prefix: The string to surround the prefix with,
+                                surround_prefix="left,right", default is " ,"
 
         :return: An information alert
         :rtype: Alert
@@ -76,7 +79,8 @@ class Alert:
 
         :param message: The message to display in the alert
         :type message: str
-        :param surround_prefix: The string to surround the prefix with, surround_prefix="left,right", default is " ,"
+        :param surround_prefix: The string to surround the prefix with,
+                                surround_prefix="left,right", default is " ,"
 
         :return: An information alert
         :rtype: Alert
@@ -89,7 +93,8 @@ class Alert:
 
         :param message: The message to display in the alert
         :type message: str
-        :param surround_prefix: The string to surround the prefix with, surround_prefix="left,right", default is " ,"
+        :param surround_prefix: The string to surround the prefix with,
+                                surround_prefix="left,right", default is " ,"
 
         :return: An information alert
         :rtype: Alert
@@ -102,7 +107,8 @@ class Alert:
 
         :param message: The message to display in the alert
         :type message: str
-        :param surround_prefix: The string to surround the prefix with, surround_prefix="left,right", default is " ,"
+        :param surround_prefix: The string to surround the prefix with,
+                                surround_prefix="left,right", default is " ,"
 
         :return: An information alert
         :rtype: Alert
