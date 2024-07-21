@@ -5,7 +5,7 @@ Welcom to PrettyPi documentation
    :maxdepth: 2
    
    pretty_print/index.rst
-   pretty_print/utils.rst
+   utils/index.rst
    pretty_tree/index.rst
 
 Project Badges

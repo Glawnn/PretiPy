@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PrettyTree &mdash; PrettyPi 0.3.0 documentation</title>
+  <title>PrettyTree &mdash; PrettyPi 0.3.1 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,13 +15,13 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=e259d695"></script>
+        <script src="../_static/documentation_options.js?v=4621528c"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="PrettyPrint utils" href="../pretty_print/utils.html" /> 
+    <link rel="prev" title="Utils" href="../utils/index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -45,7 +45,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../pretty_print/index.html">PrettyPrint</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pretty_print/utils.html">PrettyPrint utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utils</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PrettyTree</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_tree.TreeNode"><code class="docutils literal notranslate"><span class="pre">TreeNode</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.TreeNode.add_child"><code class="docutils literal notranslate"><span class="pre">TreeNode.add_child()</span></code></a></li>
@@ -87,7 +87,7 @@
 <p>prettypi.pretty_tree module help you to print easily a tree.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="prettypi.pretty_tree.TreeNode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_tree.</span></span><span class="sig-name descname"><span class="pre">TreeNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../pretty_print/utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.ansi_codes.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../pretty_print/utils.html#prettypi.pretty_print.utils.Style" title="prettypi.pretty_print.utils.ansi_codes.Style"><span class="pre">Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreeNode" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_tree.</span></span><span class="sig-name descname"><span class="pre">TreeNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.ansi_codes.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.ansi_codes.Style"><span class="pre">Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreeNode" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>TreeNode class to create a tree.</p>
 <p><strong>Features:</strong></p>
@@ -100,14 +100,14 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>value</strong> (<em>str</em>) – The value of the node</p></li>
-<li><p><strong>color</strong> (<a class="reference internal" href="../pretty_print/utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.Color"><em>Color</em></a><em>, </em><em>optional</em>) – The color of the node, defaults to None</p></li>
-<li><p><strong>style</strong> (<a class="reference internal" href="../pretty_print/utils.html#prettypi.pretty_print.utils.Style" title="prettypi.pretty_print.utils.Style"><em>Style</em></a><em>, </em><em>optional</em>) – The style of the node, defaults to None</p></li>
+<li><p><strong>color</strong> (<a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.Color"><em>Color</em></a><em>, </em><em>optional</em>) – The color of the node, defaults to None</p></li>
+<li><p><strong>style</strong> (<a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.Style"><em>Style</em></a><em>, </em><em>optional</em>) – The style of the node, defaults to None</p></li>
 </ul>
 </dd>
 </dl>
 <p><strong>Example:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettypi.pretty_tree</span> <span class="kn">import</span> <span class="n">TreeNode</span>
-<span class="kn">from</span> <span class="nn">prettypi.pretty_print.utils</span> <span class="kn">import</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Style</span>
+<span class="kn">from</span> <span class="nn">prettypi.utils</span> <span class="kn">import</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Style</span>
 
 <span class="n">root</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;Root&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">Style</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
 <span class="n">child1</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;Child1&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">GREEN</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="n">Style</span><span class="o">.</span><span class="n">UNDERLINE</span><span class="p">)</span>
@@ -158,11 +158,11 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="prettypi.pretty_tree.TreeNode.set_color">
-<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../pretty_print/utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.ansi_codes.Color"><span class="pre">Color</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreeNode.set_color" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.ansi_codes.Color"><span class="pre">Color</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreeNode.set_color" title="Link to this definition"></a></dt>
 <dd><p>Set the color of the node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>color</strong> (<a class="reference internal" href="../pretty_print/utils.html#prettypi.pretty_print.utils.Color" title="prettypi.pretty_print.utils.Color"><em>Color</em></a>) – The color of the node</p>
+<dd class="field-odd"><p><strong>color</strong> (<a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.Color"><em>Color</em></a>) – The color of the node</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – Invalid color</p>
@@ -177,11 +177,11 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="prettypi.pretty_tree.TreeNode.set_style">
-<span class="sig-name descname"><span class="pre">set_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../pretty_print/utils.html#prettypi.pretty_print.utils.Style" title="prettypi.pretty_print.utils.ansi_codes.Style"><span class="pre">Style</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreeNode.set_style" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">set_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.ansi_codes.Style"><span class="pre">Style</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreeNode.set_style" title="Link to this definition"></a></dt>
 <dd><p>Set the style of the node.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>style</strong> (<a class="reference internal" href="../pretty_print/utils.html#prettypi.pretty_print.utils.Style" title="prettypi.pretty_print.utils.Style"><em>Style</em></a>) – The style of the node</p>
+<dd class="field-odd"><p><strong>style</strong> (<a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.Style"><em>Style</em></a>) – The style of the node</p>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – Invalid style</p>
@@ -202,7 +202,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../pretty_print/utils.html" class="btn btn-neutral float-left" title="PrettyPrint utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../utils/index.html" class="btn btn-neutral float-left" title="Utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
