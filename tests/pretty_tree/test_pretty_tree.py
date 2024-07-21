@@ -1,6 +1,6 @@
 import pytest
 from prettypi.pretty_tree import TreeNode
-from prettypi.pretty_print.utils import Color, Style
+from prettypi.utils import Color, Style
 
 
 class TestTreeNode:

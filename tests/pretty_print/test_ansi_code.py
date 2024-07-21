@@ -1,6 +1,6 @@
 """ Test ansi module. """
 
-from prettypi.pretty_print.utils import Color, Style, BackgroundColor
+from prettypi.utils import Color, Style, BackgroundColor
 
 
 class TestColor:

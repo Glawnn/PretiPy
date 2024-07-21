@@ -8,7 +8,7 @@
 
 """
 
-from prettypi.pretty_print.utils.emojis import Emoji
-from prettypi.pretty_print.utils.ansi_codes import Color, Style, BackgroundColor, Align
+from prettypi.utils.emojis import Emoji
+from prettypi.utils.ansi_codes import Color, Style, BackgroundColor, Align
 
 __all__ = ["Emoji", "Color", "Style", "BackgroundColor", "Align"]
