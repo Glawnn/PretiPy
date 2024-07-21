@@ -10,7 +10,7 @@ class Emoji(Enum):
 
     .. code-block:: python
 
-            from pretty_print import Emoji
+            from prettypi.utils import Emoji
             print(f"{Emoji.SMILE} This is a smile emoji")
 
     """

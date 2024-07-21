@@ -1,6 +1,6 @@
 import pytest
 from prettypi.pretty_print import StyledStr
-from prettypi.pretty_print.utils import Color, Style, BackgroundColor, Align
+from prettypi.utils import Color, Style, BackgroundColor, Align
 
 
 class TestStyledStr:

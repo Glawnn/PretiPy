@@ -10,7 +10,7 @@ class Color(Enum):
 
     .. code-block:: python
 
-        from pretty_print import Color
+        from prettypi.utils import Color
         print(f"{Color.RED}This is a red text{Color.RESET}")
 
     """
@@ -36,7 +36,7 @@ class BackgroundColor(Enum):
 
     .. code-block:: python
 
-            from pretty_print import BackgroundColor
+            from prettypi.utils import BackgroundColor
             print(f"{BackgroundColor.RED}This is a red background{BackgroundColor.RESET}")
 
     """
@@ -62,7 +62,7 @@ class Style(Enum):
 
     .. code-block:: python
 
-            from pretty_print import Style
+            from prettypi.utils import Style
             print(f"{Style.BOLD}This is a bold text{Style.RESET}")
 
     """

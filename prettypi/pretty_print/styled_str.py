@@ -1,6 +1,6 @@
 """ This module contains the StyledStr class."""
 
-from .utils.ansi_codes import Color, Style, BackgroundColor, Align
+from prettypi.utils import Color, Style, BackgroundColor, Align
 
 
 class StyledStr:
@@ -29,7 +29,7 @@ class StyledStr:
     .. code-block:: python
 
             from prettypi.pretty_print import StyledStr
-            from prettypi.pretty_print.utils import Color, Style, Emoji, BackgroundColor
+            from prettypi.utils import Color, Style, Emoji, BackgroundColor
 
             print(StyledStr("This is a styled string", color=Color.RED, style=Style.BOLD))
 

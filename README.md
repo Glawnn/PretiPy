@@ -47,7 +47,7 @@ Here's a quick example of how to use PrettyPi:
 ### pretty_print
 ```python
 from prettypi.pretty_print import StyledStr
-from prettypi.pretty_print.utils import Color, Style, Emoji, BackgroundColor
+from prettypi.utils import Color, Style, Emoji, BackgroundColor
 
 styled_str = StyledStr("My name", background_color=BackgroundColor.MAGENTA, style=Style.UNDERLINE)
 styled_str2 = StyledStr("Toto", color=Color.RED, style=Style.BOLD)
@@ -66,7 +66,7 @@ print(alert)
 ### pretty_tree
 ```python
 from prettypi.pretty_tree import TreeNode
-from prettypi.pretty_print.utils import Color, Style
+from prettypi.utils import Color, Style
 
 root = TreeNode("Root", color=Color.RED, style=Style.BOLD)
 child1 = TreeNode("Child1")
