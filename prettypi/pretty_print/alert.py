@@ -35,21 +35,18 @@ class Alert:
         alert = Alert.info("This is an information alert")
         print(alert)
 
-    >>> ⚠️ This is an information alert
 
     .. code-block:: python
 
         custom_alert = Alert("This is a warning alert", prefix="+", surround_prefix=" [,]")
         print(custom_alert)
 
-    >>> [+] This is a warning alert
-
     """
 
     def __init__(
         self,
         message: str = "",
-        prefix: Union[Emoji, str] = Emoji.INFORMATION,
+        prefix: Union[Emoji, str] = Emoji.BULB,
         surround_prefix: str = " ,",
     ):
         self.surround_prefix = surround_prefix
@@ -83,7 +80,7 @@ class Alert:
         :return: An information alert
         :rtype: Alert
         """
-        return Alert(message, Emoji.INFORMATION, surround_prefix)
+        return Alert(message, Emoji.BULB, surround_prefix)
 
     @staticmethod
     def warning(message: str = "", surround_prefix: str = " ,"):
@@ -95,7 +92,7 @@ class Alert:
                                 surround_prefix="left,right", default is " ,"
         :type surround_prefix: str
 
-        :return: An information alert
+        :return: An warning alert
         :rtype: Alert
         """
         return Alert(message, Emoji.WARNING, surround_prefix)
@@ -110,7 +107,7 @@ class Alert:
                                 surround_prefix="left,right", default is " ,"
         :type surround_prefix: str
 
-        :return: An information alert
+        :return: An error alert
         :rtype: Alert
         """
         return Alert(message, Emoji.CROSS, surround_prefix)
@@ -125,7 +122,7 @@ class Alert:
                                 surround_prefix="left,right", default is " ,"
         :type surround_prefix: str
 
-        :return: An information alert
+        :return: An success alert
         :rtype: Alert
         """
         return Alert(message, Emoji.CHECK, surround_prefix)

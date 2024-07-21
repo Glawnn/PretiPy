@@ -80,7 +80,8 @@ class Emoji(Enum):
     ANTENNA_BARS = "📶"
     PACKAGE = "📦"
     PYTHON = "🐍"
-    INFORMATION = "ℹ️"
+    INFORMATION = "🛈"
+    BULB = "💡"
 
     def __str__(self):
         return self.value
