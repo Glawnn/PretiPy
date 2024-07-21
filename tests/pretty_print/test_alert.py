@@ -26,7 +26,7 @@ class TestAlert:
     def test_init(self, args):
         alert = Alert(**args)
         assert alert.message == args.get("message", "")
-        assert alert.prefix == args.get("prefix", Emoji.INFORMATION)
+        assert alert.prefix == args.get("prefix", Emoji.BULB)
         assert alert.surround_prefix == args.get("surround_prefix", " ,")
 
     @pytest.mark.parametrize(
@@ -54,12 +54,10 @@ class TestAlert:
     @pytest.mark.parametrize(
         "args, expected",
         [
-            pytest.param(
-                {}, f" {Emoji.INFORMATION} ", id="Test Alert with no arguments"
-            ),
+            pytest.param({}, f" {Emoji.BULB} ", id="Test Alert with no arguments"),
             pytest.param(
                 {"message": "This is an alert"},
-                f" {Emoji.INFORMATION} This is an alert",
+                f" {Emoji.BULB} This is an alert",
                 id="Test Alert with message",
             ),
             pytest.param(
@@ -85,17 +83,15 @@ class TestAlert:
     @pytest.mark.parametrize(
         "args, expected",
         [
-            pytest.param(
-                {}, f" {Emoji.INFORMATION} ", id="Test Alert with no arguments"
-            ),
+            pytest.param({}, f" {Emoji.BULB} ", id="Test Alert with no arguments"),
             pytest.param(
                 {"message": "This is an alert"},
-                f" {Emoji.INFORMATION} This is an alert",
+                f" {Emoji.BULB} This is an alert",
                 id="Test Alert with message",
             ),
             pytest.param(
                 {"message": "This is an alert", "surround_prefix": " [,]"},
-                f" [{Emoji.INFORMATION}] This is an alert",
+                f" [{Emoji.BULB}] This is an alert",
                 id="Test Alert with message and surround_prefix",
             ),
         ],
