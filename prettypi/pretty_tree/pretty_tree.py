@@ -41,7 +41,7 @@ class TreeNode:
 
     """
 
-    def __init__(self, value: str, color: Color = None, style: Style = None):
+    def __init__(self, value: str = "", color: Color = None, style: Style = None):
         self.value = value
         self.children = []
         self.color = color
@@ -52,6 +52,8 @@ class TreeNode:
 
         :param child: The child or the list of children to add
         :type child: Union["TreeNode", list["TreeNode"]]
+
+        :raises TypeError: child must be of type TreeNode or list[TreeNode]
 
         **Example:**
 
@@ -65,16 +67,20 @@ class TreeNode:
                 root.add_child(child1)
 
         """
-        if isinstance(child, list):
-            self.children.extend(child)
-        else:
-            self.children.append(child)
+        if not isinstance(child, list):
+            child = [child]
+        for one_child in child:
+            if not isinstance(one_child, TreeNode):
+                raise TypeError("child must be of type TreeNode or list[TreeNode]")
+            self.children.append(one_child)
 
     def set_color(self, color: Color):
         """Set the color of the node.
 
         :param color: The color of the node
         :type color: Color
+
+        :raises ValueError: Invalid color
 
         **Example:**
 
@@ -84,6 +90,8 @@ class TreeNode:
                 root.set_color(Color.RED)
 
         """
+        if not isinstance(color, Color):
+            raise ValueError("Invalid color")
         self.color = color
 
     def set_style(self, style: Style):
@@ -91,6 +99,8 @@ class TreeNode:
 
         :param style: The style of the node
         :type style: Style
+
+        :raises ValueError: Invalid style
 
         **Example:**
 
@@ -100,6 +110,8 @@ class TreeNode:
                 root.set_style(Style.BOLD)
 
         """
+        if not isinstance(style, Style):
+            raise ValueError("Invalid style")
         self.style = style
 
     def _compute_value(self):
@@ -112,7 +124,7 @@ class TreeNode:
         color = self.color if self.color else ""
         style = self.style if self.style else ""
         if self.color or self.style:
-            return f"{color}{style}{self.value}{Color.RESET}{Style.RESET}"
+            return f"{color}{style}{self.value}{Color.RESET}"
         return self.value
 
     def _display_tree(self, prefix="first", is_last=False):
@@ -142,7 +154,7 @@ class TreeNode:
 
         for i, child in enumerate(self.children):
             is_last = i == len(self.children) - 1
-            child._display_tree(prefix, is_last)
+            TreeNode._display_tree(child, prefix, is_last)
 
     def display(self):
         """Display the tree.
