@@ -10,6 +10,9 @@
 
 PrettyPi is a Python library for enhancing console output with colorful and style text, emojis, tables, and more.
 
+- [documentation](https://glawnn.github.io/PrettyPi/)
+- [pypi](https://pypi.org/project/prettypi/)
+
 
 ## Features
 - PrettyPrint
@@ -26,6 +29,10 @@ PrettyPi is a Python library for enhancing console output with colorful and styl
   - [ ] **Sorting**: Implement sorting functionality for table columns.
   - [ ] **Filtering**: Add filtering capabilities to tables based on user-defined criteria.
   - [ ] **Pagination**: Enable pagination for large datasets displayed in tables.
+- PrettyTree
+  - [x] **Display**: Create and display tree.
+  - [x] **Color**: Color node in tree.
+  - [x] **Style**: Custom style node in tree.
 
 ## Installation
 You can install PretiPy using pip:
@@ -46,5 +53,31 @@ styled_str = StyledStr("My name", background_color=BackgroundColor.MAGENTA, styl
 styled_str2 = StyledStr("Toto", color=Color.RED, style=Style.BOLD)
 
 print(f"{styled_str} is {styled_str2} {Emoji.SMILE}")
+```
+
+### pretty_print Alert
+```python
+from prettypi.pretty_print import Alert
+
+alert = Alert.info("This is an information alert")
+print(alert)
+```
+
+### pretty_tree
+```python
+from prettypi.pretty_tree import TreeNode
+from prettypi.pretty_print.utils import Color, Style
+
+root = TreeNode("Root", color=Color.RED, style=Style.BOLD)
+child1 = TreeNode("Child1")
+child2 = TreeNode("Child2")
+
+child1.add_child(TreeNode("Child1.1"))
+child1.add_child(TreeNode("Child1.2"))
+
+root.add_child(child1)
+root.add_child(child2)
+
+root.display()
 ```
 

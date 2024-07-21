@@ -1,6 +1,6 @@
 """ This module helps you to print easily a tree. """
 
-from typing import Union
+from typing import List, Union
 from prettypi.pretty_print.utils import Color, Style
 
 
@@ -31,8 +31,8 @@ class TreeNode:
         child1 = TreeNode("Child1", color=Color.GREEN, style=Style.UNDERLINE)
         child2 = TreeNode("Child2", color=Color.GREEN, style=Style.UNDERLINE)
 
-        child1.add_child(TreeNode("Child1.1")
-        child1.add_child(TreeNode("Child1.2")
+        child1.add_child(TreeNode("Child1.1"))
+        child1.add_child(TreeNode("Child1.2"))
 
         root.add_child(child1)
         root.add_child(child2)
@@ -47,7 +47,7 @@ class TreeNode:
         self.color = color
         self.style = style
 
-    def add_child(self, child: Union["TreeNode", list["TreeNode"]]):
+    def add_child(self, child: Union["TreeNode", List["TreeNode"]]):
         """Add a child or a list of children to the node.
 
         :param child: The child or the list of children to add
@@ -62,12 +62,12 @@ class TreeNode:
                 root = TreeNode("Root")
 
                 child1 = TreeNode("Child1", color=Color.GREEN, style=Style.UNDERLINE)
-                child1.add_child(TreeNode("Child1.1")
+                child1.add_child(TreeNode("Child1.1"))
 
                 root.add_child(child1)
 
         """
-        if not isinstance(child, list):
+        if not isinstance(child, List):
             child = [child]
         for one_child in child:
             if not isinstance(one_child, TreeNode):
