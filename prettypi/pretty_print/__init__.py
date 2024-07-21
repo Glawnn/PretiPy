@@ -1,7 +1,20 @@
-""" prettypi.pretty_print module """
+""" prettypi.pretty_print module helps you to print easily styled messages.
 
-from prettypi.pretty_print.emojis import Emoji
-from prettypi.pretty_print.ansi_codes import Color, Style, BackgroundColor
+- Use the StyledStr class to print styled messages.
+    - Color the text.
+    - Set the background color of the text.
+    - Set the style of the text.
+    - Align the text.
+- Use the Alert class to print alerts.
+    - Information alert.
+    - Warning alert.
+    - Error alert.
+    - Success alert.
+    - Custom alert.
+
+"""
+
 from prettypi.pretty_print.styled_str import StyledStr
+from prettypi.pretty_print.alert import Alert
 
-__all__ = ["Emoji", "Color", "BackgroundColor", "Style", "StyledStr"]
+__all__ = ["StyledStr", "Alert"]
