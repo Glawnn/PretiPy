@@ -1,7 +1,7 @@
 """ This module helps you to print easily a tree. """
 
 from typing import List, Union
-from prettypi.pretty_print.utils import Color, Style
+from prettypi.utils import Color, Style
 
 
 class TreeNode:
@@ -25,7 +25,7 @@ class TreeNode:
     .. code-block:: python
 
         from prettypi.pretty_tree import TreeNode
-        from prettypi.pretty_print.utils import Color, Style
+        from prettypi.utils import Color, Style
 
         root = TreeNode("Root", color=Color.RED, style=Style.BOLD)
         child1 = TreeNode("Child1", color=Color.GREEN, style=Style.UNDERLINE)

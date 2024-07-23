@@ -10,7 +10,7 @@ class Emoji(Enum):
 
     .. code-block:: python
 
-            from pretty_print import Emoji
+            from prettypi.utils import Emoji
             print(f"{Emoji.SMILE} This is a smile emoji")
 
     """
@@ -80,7 +80,8 @@ class Emoji(Enum):
     ANTENNA_BARS = "📶"
     PACKAGE = "📦"
     PYTHON = "🐍"
-    INFORMATION = "ℹ️"
+    INFORMATION = "🛈"
+    BULB = "💡"
 
     def __str__(self):
         return self.value
