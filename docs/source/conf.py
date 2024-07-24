@@ -5,11 +5,13 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+from prettypi._version import __version__
+
 
 project = 'PrettyPi'
 copyright = '2024, Vodkas'
 author = 'Vodkas'
-release = '0.4.0'
+release = __version__
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

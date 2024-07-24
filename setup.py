@@ -1,9 +1,10 @@
 from setuptools import setup, find_packages
+from prettypi._version import __version__
 
 
 setup(
     name="prettypi",
-    version="0.4.0",
+    version=__version__,
 
     description="A Python library for pretty printing and enhanced console output.",
     long_description=open("README.md").read(),

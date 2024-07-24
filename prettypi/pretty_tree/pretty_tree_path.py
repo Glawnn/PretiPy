@@ -69,7 +69,7 @@ class TreePath(TreeNode):
             from prettypi.utils import Color, Style
 
             config = Config(folder_color=Color.RED, folder_style=Style.BOLD)
-            tree = TreePath("path/to/folder", config=config)
+            tree = TreePath(".", config=config)
             tree.display()
 
     """
@@ -129,7 +129,7 @@ class TreePath(TreeNode):
             from prettypi.utils import Color, Style
 
             config = Config(folder_color=Color.RED, folder_style=Style.BOLD)
-            tree = TreePath("path/to/folder")
+            tree = TreePath("docs")
             tree.set_config(config)
 
         """
@@ -146,7 +146,7 @@ class TreePath(TreeNode):
 
         .. code-block:: python
 
-                tree = TreePath("path/to/folder")
+                tree = TreePath("docs")
                 tree.display()
 
         """
