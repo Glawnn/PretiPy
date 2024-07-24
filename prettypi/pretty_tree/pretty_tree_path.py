@@ -146,8 +146,6 @@ class TreePath(TreeNode):
 
         .. code-block:: python
 
-                from prettypi.pretty_tree import TreePath
-
                 tree = TreePath("path/to/folder")
                 tree.display()
 
