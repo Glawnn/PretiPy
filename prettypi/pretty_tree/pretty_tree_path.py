@@ -19,12 +19,32 @@ class Config:
     :param file_style: The style of the file, defaults to None
     :type file_style: Style, optional
 
+    :raises ValueError: If arguments are not of the expected type
+
     """
 
     folder_color: Color = None
     folder_style: Style = Style.BOLD
     file_color: Color = None
     file_style: Style = None
+
+    def __post_init__(self):
+        if self.folder_color is not None and not isinstance(self.folder_color, Color):
+            raise ValueError(
+                f"Expected folder_color to be of type Color, got {type(self.folder_color)}"
+            )
+        if self.folder_style is not None and not isinstance(self.folder_style, Style):
+            raise ValueError(
+                f"Expected folder_style to be of type Style, got {type(self.folder_style)}"
+            )
+        if self.file_color is not None and not isinstance(self.file_color, Color):
+            raise ValueError(
+                f"Expected file_color to be of type Color, got {type(self.file_color)}"
+            )
+        if self.file_style is not None and not isinstance(self.file_style, Style):
+            raise ValueError(
+                f"Expected file_style to be of type Style, got {type(self.file_style)}"
+            )
 
 
 class TreePath(TreeNode):
@@ -56,6 +76,12 @@ class TreePath(TreeNode):
 
     def __init__(self, path: str, config: Config = Config()):
         self.abs_path = os.path.abspath(path)
+
+        if not isinstance(config, Config):
+            raise ValueError(
+                f"Expected config to be of type Config, got {type(config)}"
+            )
+
         self.config = config
         self.color = self.config.folder_color
         self.style = self.config.folder_style
@@ -77,14 +103,14 @@ class TreePath(TreeNode):
             else:
                 self.add_child(TreeNode(item))
 
-    def apply_config(self):
+    def _apply_config(self):
         """Apply the config to the tree"""
         self.color = self.config.folder_color
         self.style = self.config.folder_style
         for child in self.children:
             if isinstance(child, TreePath):
                 child.set_config(self.config)
-                child.apply_config()
+                TreePath._apply_config(child)
             else:
                 child.color = self.config.file_color
                 child.style = self.config.file_style
@@ -107,9 +133,24 @@ class TreePath(TreeNode):
             tree.set_config(config)
 
         """
+        if not isinstance(config, Config):
+            raise ValueError(
+                f"Expected config to be of type Config, got {type(config)}"
+            )
         self.config = config
 
     def display(self):
-        """Display the tree"""
-        self.apply_config()
+        """Display the tree
+
+        **Example:**
+
+        .. code-block:: python
+
+                from prettypi.pretty_tree import TreePath
+
+                tree = TreePath("path/to/folder")
+                tree.display()
+
+        """
+        self._apply_config()
         TreeNode.display(self)
