@@ -59,12 +59,12 @@ class TreeNode:
 
         .. code-block:: python
 
-                root = TreeNode("Root")
+            root = TreeNode("Root")
 
-                child1 = TreeNode("Child1", color=Color.GREEN, style=Style.UNDERLINE)
-                child1.add_child(TreeNode("Child1.1"))
+            child1 = TreeNode("Child1", color=Color.GREEN, style=Style.UNDERLINE)
+            child1.add_child(TreeNode("Child1.1"))
 
-                root.add_child(child1)
+            root.add_child(child1)
 
         """
         if not isinstance(child, List):
@@ -86,8 +86,8 @@ class TreeNode:
 
         .. code-block:: python
 
-                root = TreeNode("Root")
-                root.set_color(Color.RED)
+            root = TreeNode("Root")
+            root.set_color(Color.RED)
 
         """
         if not isinstance(color, Color):
@@ -106,8 +106,8 @@ class TreeNode:
 
         .. code-block:: python
 
-                root = TreeNode("Root")
-                root.set_style(Style.BOLD)
+            root = TreeNode("Root")
+            root.set_style(Style.BOLD)
 
         """
         if not isinstance(style, Style):
@@ -163,8 +163,8 @@ class TreeNode:
 
         .. code-block:: python
 
-                root = TreeNode("Root")
-                root.display()
+            root = TreeNode("Root")
+            root.display()
 
         """
         self._display_tree()

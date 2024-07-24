@@ -149,6 +149,7 @@ class StyledStr:
 
         .. code-block:: python
 
+                from prettypi.utils import Align
                 styled_str = StyledStr("This is a styled string")
                 styled_str.set_align(Align.CENTER, 20)
                 print(styled_str)
