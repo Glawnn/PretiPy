@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="prettypi",
-    version="0.3.1",
+    version="0.3.2",
 
     description="A Python library for pretty printing and enhanced console output.",
     long_description=open("README.md").read(),
