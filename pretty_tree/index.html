@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PrettyTree &mdash; PrettyPi 0.3.1 documentation</title>
+  <title>PrettyTree &mdash; PrettyPi 0.3.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -15,7 +15,7 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=4621528c"></script>
+        <script src="../_static/documentation_options.js?v=71d9d8e6"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
@@ -47,11 +47,23 @@
 <li class="toctree-l1"><a class="reference internal" href="../pretty_print/index.html">PrettyPrint</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utils</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">PrettyTree</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_tree.Config"><code class="docutils literal notranslate"><span class="pre">Config</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.Config.file_color"><code class="docutils literal notranslate"><span class="pre">Config.file_color</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.Config.file_style"><code class="docutils literal notranslate"><span class="pre">Config.file_style</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.Config.folder_color"><code class="docutils literal notranslate"><span class="pre">Config.folder_color</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.Config.folder_style"><code class="docutils literal notranslate"><span class="pre">Config.folder_style</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_tree.TreeNode"><code class="docutils literal notranslate"><span class="pre">TreeNode</span></code></a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.TreeNode.add_child"><code class="docutils literal notranslate"><span class="pre">TreeNode.add_child()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.TreeNode.display"><code class="docutils literal notranslate"><span class="pre">TreeNode.display()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.TreeNode.set_color"><code class="docutils literal notranslate"><span class="pre">TreeNode.set_color()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.TreeNode.set_style"><code class="docutils literal notranslate"><span class="pre">TreeNode.set_style()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#prettypi.pretty_tree.TreePath"><code class="docutils literal notranslate"><span class="pre">TreePath</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.TreePath.display"><code class="docutils literal notranslate"><span class="pre">TreePath.display()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#prettypi.pretty_tree.TreePath.set_config"><code class="docutils literal notranslate"><span class="pre">TreePath.set_config()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -85,6 +97,46 @@
   <section id="module-prettypi.pretty_tree">
 <span id="prettytree"></span><h1>PrettyTree<a class="headerlink" href="#module-prettypi.pretty_tree" title="Link to this heading"></a></h1>
 <p>prettypi.pretty_tree module help you to print easily a tree.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_tree.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_tree.</span></span><span class="sig-name descname"><span class="pre">Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">folder_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.ansi_codes.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.ansi_codes.Style"><span class="pre">Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">Style.BOLD</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.ansi_codes.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.ansi_codes.Style"><span class="pre">Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Configuration class for the TreePath class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>folder_color</strong> (<a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.Color"><em>Color</em></a><em>, </em><em>optional</em>) – The color of the folder, defaults to None</p></li>
+<li><p><strong>folder_style</strong> (<a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.Style"><em>Style</em></a><em>, </em><em>optional</em>) – The style of the folder, defaults to Style.BOLD</p></li>
+<li><p><strong>file_color</strong> (<a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.Color"><em>Color</em></a><em>, </em><em>optional</em>) – The color of the file, defaults to None</p></li>
+<li><p><strong>file_style</strong> (<a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.Style"><em>Style</em></a><em>, </em><em>optional</em>) – The style of the file, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If arguments are not of the expected type</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_tree.Config.file_color">
+<span class="sig-name descname"><span class="pre">file_color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.ansi_codes.Color"><span class="pre">Color</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#prettypi.pretty_tree.Config.file_color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_tree.Config.file_style">
+<span class="sig-name descname"><span class="pre">file_style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.ansi_codes.Style"><span class="pre">Style</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#prettypi.pretty_tree.Config.file_style" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_tree.Config.folder_color">
+<span class="sig-name descname"><span class="pre">folder_color</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.ansi_codes.Color"><span class="pre">Color</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#prettypi.pretty_tree.Config.folder_color" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="prettypi.pretty_tree.Config.folder_style">
+<span class="sig-name descname"><span class="pre">folder_style</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.ansi_codes.Style"><span class="pre">Style</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[1m'</span></em><a class="headerlink" href="#prettypi.pretty_tree.Config.folder_style" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="prettypi.pretty_tree.TreeNode">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_tree.</span></span><span class="sig-name descname"><span class="pre">TreeNode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Color" title="prettypi.utils.ansi_codes.Color"><span class="pre">Color</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../utils/index.html#prettypi.utils.Style" title="prettypi.utils.ansi_codes.Style"><span class="pre">Style</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreeNode" title="Link to this definition"></a></dt>
@@ -190,6 +242,69 @@
 <p><strong>Example:</strong></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">root</span> <span class="o">=</span> <span class="n">TreeNode</span><span class="p">(</span><span class="s2">&quot;Root&quot;</span><span class="p">)</span>
 <span class="n">root</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="n">Style</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="prettypi.pretty_tree.TreePath">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">prettypi.pretty_tree.</span></span><span class="sig-name descname"><span class="pre">TreePath</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path:</span> <span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">config:</span> <span class="pre">~prettypi.pretty_tree.pretty_tree_path.Config</span> <span class="pre">=</span> <span class="pre">Config(folder_color=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">folder_style=&lt;Style.BOLD:</span> <span class="pre">'\x1b[1m'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_color=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_style=None)</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreePath" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#prettypi.pretty_tree.TreeNode" title="prettypi.pretty_tree.pretty_tree.TreeNode"><code class="xref py py-class docutils literal notranslate"><span class="pre">TreeNode</span></code></a></p>
+<p>TreePath class to create a tree of a path</p>
+<p><strong>Features:</strong></p>
+<ul class="simple">
+<li><p>Use TreePath to create a tree of a path.</p></li>
+<li><p>Use the display method to display the tree.</p></li>
+<li><p>Add color and style to the folder and file with the config parameter.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>str</em>) – The path to create the tree</p></li>
+<li><p><strong>config</strong> (<a class="reference internal" href="#prettypi.pretty_tree.Config" title="prettypi.pretty_tree.Config"><em>Config</em></a><em>, </em><em>optional</em>) – The configuration of the tree, defaults to Config()</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettypi.pretty_tree</span> <span class="kn">import</span> <span class="n">TreePath</span>
+<span class="kn">from</span> <span class="nn">prettypi.utils</span> <span class="kn">import</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Style</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">folder_color</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="n">folder_style</span><span class="o">=</span><span class="n">Style</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">TreePath</span><span class="p">(</span><span class="s2">&quot;path/to/folder&quot;</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_tree.TreePath.display">
+<span class="sig-name descname"><span class="pre">display</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreePath.display" title="Link to this definition"></a></dt>
+<dd><p>Display the tree</p>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettypi.pretty_tree</span> <span class="kn">import</span> <span class="n">TreePath</span>
+
+<span class="n">tree</span> <span class="o">=</span> <span class="n">TreePath</span><span class="p">(</span><span class="s2">&quot;path/to/folder&quot;</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="prettypi.pretty_tree.TreePath.set_config">
+<span class="sig-name descname"><span class="pre">set_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#prettypi.pretty_tree.Config" title="prettypi.pretty_tree.pretty_tree_path.Config"><span class="pre">Config</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#prettypi.pretty_tree.TreePath.set_config" title="Link to this definition"></a></dt>
+<dd><p>Set the configuration of the tree</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>config</strong> (<a class="reference internal" href="#prettypi.pretty_tree.Config" title="prettypi.pretty_tree.Config"><em>Config</em></a>) – The configuration of the tree</p>
+</dd>
+</dl>
+<p><strong>Example:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">prettypi.pretty_tree</span> <span class="kn">import</span> <span class="n">TreePath</span><span class="p">,</span> <span class="n">Config</span>
+<span class="kn">from</span> <span class="nn">prettypi.utils</span> <span class="kn">import</span> <span class="n">Color</span><span class="p">,</span> <span class="n">Style</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">Config</span><span class="p">(</span><span class="n">folder_color</span><span class="o">=</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="p">,</span> <span class="n">folder_style</span><span class="o">=</span><span class="n">Style</span><span class="o">.</span><span class="n">BOLD</span><span class="p">)</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">TreePath</span><span class="p">(</span><span class="s2">&quot;path/to/folder&quot;</span><span class="p">)</span>
+<span class="n">tree</span><span class="o">.</span><span class="n">set_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
