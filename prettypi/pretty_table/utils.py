@@ -10,6 +10,8 @@ class JsonRow:
     def __init__(self, row_type, row_data, border, separator) -> None:
         self.row_type = row_type
         self.row_data = row_data
+        if not isinstance(border, Border):
+            raise ValueError("border must be an instance of Border")
         self.border = border
         self.separator = separator
         self.row_computed = None
@@ -63,7 +65,7 @@ class JsonRow:
         """
         border.left = border.left.rstrip()
         border.right = border.right.lstrip()
-        return JsonRow("separator", "", border, separator)
+        return JsonRow("separator", [], border, separator)
 
     def len_border_left(self):
         """Check the length of the left border
@@ -88,7 +90,9 @@ class JsonRow:
         :return: The length of the columns
         :rtype: List[int]
         """
-        return [len(item) for item in self.row_data]
+        if self.row_data:
+            return [len(item) for item in self.row_data]
+        return []
 
     def __str__(self) -> str:
         return f"{self.border.left}, {self.row_data}, {self.border.right}"
