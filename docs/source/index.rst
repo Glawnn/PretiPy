@@ -7,6 +7,7 @@ Welcom to PrettyPi documentation
    pretty_print/index.rst
    utils/index.rst
    pretty_tree/index.rst
+   pretty_table/index.rst
 
 Project Badges
 --------------
