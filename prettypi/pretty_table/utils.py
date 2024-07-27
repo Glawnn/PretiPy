@@ -155,7 +155,7 @@ class JsonRowsManager:
 
         if self.header:
             self._init_header(header, config)
-        if data:
+        if self.data:
             self._init_data(self.data, config)
         self._update_max_len()
 
@@ -203,6 +203,8 @@ class JsonRowsManager:
         self.init(self.header, self.data, config)
 
     def _update_max_len(self):
+        if not self.json_rows:
+            return
         self.max_len_before = max(len(row.border.left) for row in self.json_rows)
         self.max_len_after = max(len(row.border.right) for row in self.json_rows)
 

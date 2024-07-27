@@ -1,6 +1,7 @@
 import pytest
 
-from prettypi.pretty_table.utils import JsonRow, Border
+from prettypi.pretty_table.utils import JsonRow, Border, JsonRowsManager
+from prettypi.pretty_table.table_config import TableConfig
 
 
 class TestJsonRow:
@@ -285,3 +286,96 @@ class TestJsonRow:
 ###################
 # JsonRowsManager #
 ###################
+
+
+class TestTableConfigBuilder:
+    def test_instantiate(self):
+        manager = JsonRowsManager()
+        assert manager.json_rows == []
+        assert manager.max_len_after == 0
+        assert manager.max_len_before == 0
+        assert manager.max_len_columns == []
+        assert manager.data is None
+        assert manager.header is None
+
+    @pytest.mark.parametrize(
+        "header, data",
+        [
+            pytest.param(["a", "b"], [["1", "2"], ["3", "4"]], id="header and data"),
+            pytest.param(["a", "b"], [], id="header and empty data"),
+            pytest.param([], [["1", "2"], ["3", "4"]], id="empty header and data"),
+            pytest.param([], [], id="empty header and data"),
+        ],
+    )
+    def test_init(self, header, data):
+        config = TableConfig.builder().build()
+        manager = JsonRowsManager()
+        manager.init(header, data, config)
+        assert manager.data == data
+        assert manager.header == header
+        if not header and not data:
+            assert manager.json_rows == []
+        else:
+            assert manager.json_rows != []
+
+    def test_init_header(self):
+        config = (
+            TableConfig.builder()
+            .set_border(top="═", bottom="═", left="│ ", right=" │", data_bottom="═")
+            .set_column_separator(" ║ ")
+            .set_row_separator("┈")
+            .build()
+        )
+        manager = JsonRowsManager()
+        manager._init_header(["a", "b"], config)
+        assert len(manager.json_rows) == 3
+        assert manager.json_rows[0].row_type == "separator"
+        assert manager.json_rows[1].row_type == "header"
+        assert manager.json_rows[2].row_type == "separator"
+
+    def test_init_data(self):
+        config = (
+            TableConfig.builder()
+            .set_border(top="═", bottom="═", left="│ ", right=" │", data_bottom="═")
+            .set_column_separator(" ║ ")
+            .set_row_separator("┈")
+            .build()
+        )
+        manager = JsonRowsManager()
+        manager._init_data([["1", "2"], ["3", "4"]], config)
+        assert len(manager.json_rows) == 4
+        assert manager.json_rows[0].row_type == "data"
+        assert manager.json_rows[1].row_type == "separator"
+        assert manager.json_rows[2].row_type == "data"
+        assert manager.json_rows[3].row_type == "separator"
+
+    def test_set_config(self, mocker):
+        config = TableConfig.builder().build()
+        manager = JsonRowsManager()
+        mocker.patch.object(manager, "init")
+        manager.set_config(config)
+        assert manager.init.call_count == 1
+
+    def test_update_max_len(self):
+        manager = JsonRowsManager()
+        manager.json_rows = [
+            JsonRow("header", ["a", "b"], Border(left="|"), "separator")
+        ]
+        manager._update_max_len()
+        assert manager.max_len_before == 1
+        assert manager.max_len_after == 0
+        assert manager.max_len_columns == [1, 1]
+
+    def test_process(self):
+        manager = JsonRowsManager()
+        manager.init(["a", "b"], [["1", "2"]], TableConfig.builder().build())
+        manager.process()
+        assert manager.json_rows[0].row_computed == " a | b "
+        assert manager.json_rows[1].row_computed == " 1 | 2 "
+        assert manager.json_rows[2].row_computed == "-------"
+
+    def test_str(self):
+        manager = JsonRowsManager()
+        manager.init(["a", "b"], [["1", "2"]], TableConfig.builder().build())
+        manager.process()
+        assert str(manager) == " a | b \n 1 | 2 \n-------"
