@@ -26,8 +26,8 @@ class TableConfig:
             "border_header", Border(top="", bottom="", left="", right="")
         )
         self.border_data = kwargs.get("border_data", Border(left="", right=""))
-        self.column_separator = kwargs.get("column_separator", " | ")
-        self.row_separator = kwargs.get("row_separator", "-")
+        self.column_separator = kwargs.get("column_separator", " ")
+        self.row_separator = kwargs.get("row_separator", "")
         self.alignment_default = kwargs.get("alignment", "left")
         self.alignments = kwargs.get("alignments", [])
 
@@ -68,8 +68,8 @@ class TableConfigBuilder:
     def __init__(self) -> None:
         self.border_header = Border()
         self.border_data = Border()
-        self.column_separator = " | "
-        self.row_separator = "-"
+        self.column_separator = " "
+        self.row_separator = ""
         self.alignment_default = "left"
         self.alignments = []
 
